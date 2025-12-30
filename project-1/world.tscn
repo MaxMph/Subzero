@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://hscna65rhhi4"]
+
+[ext_resource type="Texture2D" uid="uid://e2u6xyk0idnx" path="res://textures/overcast_soil_puresky_1k.exr" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cn60v3e0rhgr7" path="res://player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://c5w7q8esmir2j" path="res://textures/46_field with snow texture-seamless_256.jpg" id="1_fj7yv"]
+[ext_resource type="Texture2D" uid="uid://cwm0bjt3oncjf" path="res://textures/131_old wall brick PBR texture-seamless.jpg" id="3_tlwt5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_036b0"]
+panorama = ExtResource("1_aqk2v")
+filter = false
+energy_multiplier = 0.15
+
+[sub_resource type="Sky" id="Sky_dwbse"]
+sky_material = SubResource("PanoramaSkyMaterial_036b0")
+
+[sub_resource type="Environment" id="Environment_tlwt5"]
+background_mode = 2
+sky = SubResource("Sky_dwbse")
+ambient_light_sky_contribution = 0.4
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.31177357, 0.3423284, 0.3601139, 1)
+fog_density = 0.04
+fog_sky_affect = 0.96
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
+albedo_texture = ExtResource("1_fj7yv")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0717734
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+albedo_texture = ExtResource("3_tlwt5")
+uv1_scale = Vector3(0.15, 0.15, 0.15)
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="world" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+light_energy = 0.2
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tlwt5")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+material_override = SubResource("StandardMaterial3D_tlwt5")
+use_collision = true
+size = Vector3(200, 1, 200)
+
+[node name="player" parent="." instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 12, 7.5, -12)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(10, 13, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 12.2, -11)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(30, 2, 8)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 12.2, 11)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(30, 2, 8)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.4, 0, -1, 0, -4.371139e-08, -11, 12.2, 0)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(30, 2, 8)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.4, 0, -1, 0, -4.371139e-08, 11, 12.200003, 0)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(30, 2, 8)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 12, 7.5, 12)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(10, 13, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -12, 7.5, -12)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(10, 13, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -12, 7.5, 12)
+material_override = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(10, 13, 10)
