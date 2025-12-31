@@ -11,9 +11,17 @@ var sense = 0.001
 @export var head: Node3D
 @export var cam: Camera3D
 
+var root_gun_pos
+
+var time: float
+
+var gun = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	root_gun_pos = $head/cam_holder/Camera3D/gun_holder.position
+	$head/cam_holder/Camera3D/root_gun_pos.global_position = $head/cam_holder/Camera3D/gun_holder.global_position
+	$gun_follow.global_position = $head/cam_holder/Camera3D/gun_holder.global_position
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -21,7 +29,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		cam.rotate_x(-event.relative.y * sense)
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 
+func _process(delta: float) -> void:
+	time += delta
+	cam_holder_ani(delta)
+	gun_pos(delta)
+
 func _physics_process(delta: float) -> void:
+	
+	get_gun()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -37,7 +52,12 @@ func _physics_process(delta: float) -> void:
 			%int_indicator.show()
 			if Input.is_action_just_pressed("int"):
 				%interact_cast.get_collider().interact()
-	 
+	
+	if Input.is_action_pressed("aim"):
+		var gun_aim_pos = $head/cam_holder/Camera3D/sight_pos.position - gun.sight_pos
+		$head/cam_holder/Camera3D/root_gun_pos.position = gun_aim_pos
+	else:
+		$head/cam_holder/Camera3D/root_gun_pos.position = root_gun_pos
 	
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -51,3 +71,22 @@ func _physics_process(delta: float) -> void:
 	$Control/fps_counter.text = str(Engine.get_frames_per_second())
 
 	move_and_slide()
+
+func cam_holder_ani(delta):
+	var pos_adjustment
+	var move_speed = abs(velocity.x) + abs(velocity.z)
+	if move_speed > 0.4:
+		$head/cam_holder.position.y = sin(time * (8)) * (0.1 * (move_speed/4))
+		print(move_speed)
+	else:
+		$head/cam_holder.position.y = move_toward($head/cam_holder.position.y, 0.0, delta * 1)
+
+func gun_pos(delta):
+	$gun_follow.global_position = lerp($gun_follow.global_position, $head/cam_holder/Camera3D/root_gun_pos.global_position, 22 * delta)
+	%gun_holder.global_position = $gun_follow.global_position
+
+func get_gun():
+	gun = null
+	for i in %gun_holder.get_children():
+		if i.visible == true:
+			gun = i

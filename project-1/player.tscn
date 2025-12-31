@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn60v3e0rhgr7"]
+[gd_scene load_steps=6 format=3 uid="uid://cn60v3e0rhgr7"]
 
 [ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://gun_holder.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://pistol_1.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
@@ -24,6 +26,18 @@ unique_name_in_owner = true
 target_position = Vector3(0, 0, -2)
 
 [node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27574974, -0.351874, -0.79449916)
+script = ExtResource("2_i3pqv")
+
+[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" instance=ExtResource("2_onrkg")]
+
+[node name="cam ani" type="AnimationPlayer" parent="head/cam_holder/Camera3D"]
+
+[node name="root_gun_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
+
+[node name="sight_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_4flbx")
@@ -109,3 +123,5 @@ offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
+
+[node name="gun_follow" type="Marker3D" parent="."]

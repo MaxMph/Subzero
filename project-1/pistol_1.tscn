@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt6lgjqy56hyl"]
+[gd_scene load_steps=3 format=3 uid="uid://bt6lgjqy56hyl"]
 
 [ext_resource type="Script" uid="uid://qkb7wd7ldxla" path="res://gun.gd" id="1_2napi"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_2napi"]
+
 [node name="pistol 1" type="Node3D"]
 script = ExtResource("1_2napi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.12670214, 0, 0, 0, 0.1715574, 0, 0, 0, 0.6354524, 0, 0.018083155, -0.24733941)
+mesh = SubResource("BoxMesh_2napi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.7616065, 0, 0, 0, 0.38764372, -1.7237856, 0, 0.18126747, 0.26868832, 0, -0.63281286, 0.4499095)
+mesh = SubResource("BoxMesh_2napi")
+skeleton = NodePath("../..")
+
+[node name="gun_sights" type="Marker3D" parent="."]
+transform = Transform3D(0.69910574, 0, 0, 0, 0.45064613, 0, 0, 0, 0.6354524, 0, 0.126625, 0)
