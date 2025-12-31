@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwallvckox45x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yj153"]
+
+[node name="muzzle 1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.14096664, 0, 0, 0, 0.11832911, 0, 0, 0, 0.48753682, 0, 0, -0.23218636)
+mesh = SubResource("BoxMesh_yj153")

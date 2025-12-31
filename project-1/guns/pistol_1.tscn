@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt6lgjqy56hyl"]
+
+[ext_resource type="Script" uid="uid://qkb7wd7ldxla" path="res://guns/gun.gd" id="1_2napi"]
+[ext_resource type="PackedScene" uid="uid://b435vk07a87nx" path="res://guns/ironsights_1.tscn" id="2_bpysr"]
+[ext_resource type="PackedScene" uid="uid://xg2yaaxujmo" path="res://guns/pistol_barrel_mag.tscn" id="2_cxyyq"]
+[ext_resource type="PackedScene" uid="uid://dwallvckox45x" path="res://guns/muzzle_1.tscn" id="2_lhf1u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2napi"]
+
+[node name="pistol 1" type="Node3D"]
+script = ExtResource("1_2napi")
+mag = ExtResource("2_cxyyq")
+sight = ExtResource("2_bpysr")
+muzzle = ExtResource("2_lhf1u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.12670214, 0, 0, 0, 0.1715574, 0, 0, 0, 0.6354524, 0, 0.018083155, -0.24733941)
+mesh = SubResource("BoxMesh_2napi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.7616065, 0, 0, 0, 0.38764372, -1.7237856, 0, 0.18126747, 0.26868832, 0, -0.63281286, 0.4499095)
+mesh = SubResource("BoxMesh_2napi")
+skeleton = NodePath("../..")
+
+[node name="gun_sights" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099405125, 0)
+
+[node name="gun_muzzle" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06463224, -0.5578526)
+
+[node name="gun_mag" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8476965, 0.5304816, 0, -0.5304816, 0.8476965, 0, -0.013136685, -0.0122978985)

@@ -1,14 +1,15 @@
 extends Node3D
 
-var sight_pos
+@export var value = 40
+@export var item_name = "ironsight"
+@export var weight = 0.1
+@onready var aim_pos = $Marker3D.position
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	sight_pos = $gun_sights.position
+	pass
+	#aim_pos = $Marker3D.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func shoot():
 	pass
