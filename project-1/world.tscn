@@ -37,7 +37,7 @@ uv1_scale = Vector3(0.15, 0.15, 0.15)
 uv1_triplanar = true
 texture_filter = 0
 
-[node name="world" type="Node3D"]
+[node name="world" type="Node3D" groups=["world"]]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
