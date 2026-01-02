@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn60v3e0rhgr7"]
+[gd_scene format=4 uid="uid://cn60v3e0rhgr7"]
 
 [ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
@@ -162,38 +162,50 @@ bind/40/pose = Transform3D(-3.2707056e-05, -1, 0, 0, 0, 1.0000001, -1, 3.2707056
 [sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
 font_size = 9
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("head", "cam") groups=["player"]]
+[node name="player" type="CharacterBody3D" unique_id=1384160024 node_paths=PackedStringArray("head", "cam") groups=["player"]]
 script = ExtResource("1_4flbx")
 head = NodePath("head")
 cam = NodePath("head/cam_holder/Camera3D")
 
-[node name="head" type="Node3D" parent="."]
+[node name="head" type="Node3D" parent="." unique_id=1134921601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="cam_holder" type="Node3D" parent="head"]
+[node name="cam_holder" type="Node3D" parent="head" unique_id=1457685452]
 
-[node name="Camera3D" type="Camera3D" parent="head/cam_holder"]
+[node name="Camera3D" type="Camera3D" parent="head/cam_holder" unique_id=1096660365]
 
-[node name="interact_cast" type="RayCast3D" parent="head/cam_holder/Camera3D"]
+[node name="interact_cast" type="RayCast3D" parent="head/cam_holder/Camera3D" unique_id=1740638577]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -2)
 
-[node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D"]
+[node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D" unique_id=2141059182]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27574974, -0.351874, -0.79449916)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27574974, -0.351874, -0.99833333)
 script = ExtResource("2_i3pqv")
 
-[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" instance=ExtResource("2_onrkg")]
+[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" unique_id=1065613362 instance=ExtResource("2_onrkg")]
 
-[node name="cam ani" type="AnimationPlayer" parent="head/cam_holder/Camera3D"]
+[node name="l_hand" type="Node3D" parent="head/cam_holder/Camera3D/gun_holder" unique_id=263140960]
+transform = Transform3D(0.12612696, 0.95444846, -0.27040762, -0.3480184, -0.21268743, -0.9130429, -0.92896473, 0.20926607, 0.30533993, -0.38909844, -0.0773007, 0)
+visible = false
 
-[node name="root_gun_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
+[node name="R_hand" type="Node3D" parent="head/cam_holder/Camera3D/gun_holder" unique_id=996349970]
+transform = Transform3D(-0.057341717, 0.92893654, -0.36577052, 0.26444483, -0.3391544, -0.9027972, -0.9626945, -0.14849411, -0.22620487, 0.20221922, -0.05118507, 0.051965296)
+visible = false
 
-[node name="sight_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
+[node name="magnet r" type="Node3D" parent="head/cam_holder/Camera3D/gun_holder" unique_id=544027764]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.3954209, -0.48162585, 0.30651796)
+visible = false
+
+[node name="cam ani" type="AnimationPlayer" parent="head/cam_holder/Camera3D" unique_id=1560489295]
+
+[node name="root_gun_pos" type="Marker3D" parent="head/cam_holder/Camera3D" unique_id=53830945]
+
+[node name="sight_pos" type="Marker3D" parent="head/cam_holder/Camera3D" unique_id=1310867336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
-[node name="arms" type="Skeleton3D" parent="head/cam_holder/Camera3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+[node name="arms" type="Skeleton3D" parent="head/cam_holder/Camera3D" unique_id=1654730307]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.47853184, 0.14049232)
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -214,21 +226,21 @@ bones/2/rest = Transform3D(0.99996334, -0.008561896, -0.00023801069, 0.008555734
 bones/2/enabled = true
 bones/2/position = Vector3(4.521592e-10, 0.9912581, 1.3647821e-09)
 bones/2/rotation = Quaternion(-0.03740123, 4.1192518e-05, 0.004282443, 0.9992912)
-bones/2/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/2/scale = Vector3(1, 1, 0.99999994)
 bones/3/name = "palm.l"
 bones/3/parent = 2
 bones/3/rest = Transform3D(0.99582934, 0.09121797, -0.0017453961, -0.09119612, 0.994671, -0.048096213, -0.0026511438, 0.04805481, 0.99884117, 2.704752e-09, 0.6555931, 3.806008e-09)
 bones/3/enabled = true
 bones/3/position = Vector3(2.704752e-09, 0.6555931, 3.806008e-09)
-bones/3/rotation = Quaternion(0.024069846, 0.0002267393, -0.045664404, 0.99866676)
+bones/3/rotation = Quaternion(0.024069836, 0.00022674029, -0.045664407, 0.9986668)
 bones/3/scale = Vector3(1, 1.0000001, 1)
 bones/4/name = "pinky1.l"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.9967674, -0.08033979, 0.0004856791, 0.07767457, 0.96212035, -0.26132542, 0.020527553, 0.26051837, 0.96525055, -0.018750653, 0.24318285, 0.086592644)
 bones/4/enabled = true
-bones/4/position = Vector3(-0.018750653, 0.24318285, 0.086592644)
-bones/4/rotation = Quaternion(0.13171595, -0.005058668, 0.039883602, 0.9904719)
-bones/4/scale = Vector3(1, 0.99999994, 0.9999999)
+bones/4/position = Vector3(-0.018750636, 0.24318285, 0.086592644)
+bones/4/rotation = Quaternion(0.10432366, 0.09495955, 0.667432, 0.73118657)
+bones/4/scale = Vector3(1.0000001, 0.99999994, 0.9999999)
 bones/5/name = "pinky2.l"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.9999999, -0.00030610137, -7.496282e-07, 0.00030609692, 0.9999652, 0.008338545, -1.8028376e-06, -0.0083385445, 0.99996525, -1.0477379e-09, 0.06551565, -3.457535e-08)
@@ -247,9 +259,9 @@ bones/7/name = "ring1.l"
 bones/7/parent = 3
 bones/7/rest = Transform3D(0.99591535, -0.090288185, 0.0008033858, 0.09002479, 0.9922476, -0.085674815, 0.006938267, 0.08539719, 0.99632275, -0.019712014, 0.25371876, 0.031144366)
 bones/7/enabled = true
-bones/7/position = Vector3(-0.019712014, 0.25371876, 0.031144366)
-bones/7/rotation = Quaternion(0.042851184, -0.0015367033, 0.04516592, 0.99805886)
-bones/7/scale = Vector3(1, 0.99999994, 0.99999994)
+bones/7/position = Vector3(-0.019711988, 0.25371876, 0.031144366)
+bones/7/rotation = Quaternion(0.03691779, 0.034532905, 0.5909216, 0.80514365)
+bones/7/scale = Vector3(1.0000001, 1, 1)
 bones/8/name = "ring2.l"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.9999912, -0.0041992357, 5.9424114e-05, 0.0041986844, 0.99996406, 0.007367058, -9.035799e-05, -0.0073667434, 0.9999729, 5.675247e-10, 0.09514668, 5.1775714e-08)
@@ -268,9 +280,9 @@ bones/10/name = "middle1.l"
 bones/10/parent = 3
 bones/10/rest = Transform3D(0.9967219, -0.08088487, -0.0017195094, 0.08089896, 0.99622965, 0.03133464, -0.00082147185, -0.031371035, 0.9995074, -0.020308122, 0.25983843, -0.024944209)
 bones/10/enabled = true
-bones/10/position = Vector3(-0.020308122, 0.25983843, -0.024944209)
-bones/10/rotation = Quaternion(-0.015691217, -0.00022472137, 0.040484138, 0.99905694)
-bones/10/scale = Vector3(0.9999999, 1.0000001, 1)
+bones/10/position = Vector3(-0.020308143, 0.25983843, -0.024944209)
+bones/10/rotation = Quaternion(-0.01141575, 0.0037059707, 0.67582566, 0.7369638)
+bones/10/scale = Vector3(0.99999994, 1.0000001, 1)
 bones/11/name = "middle2.l"
 bones/11/parent = 10
 bones/11/rest = Transform3D(0.9999999, 0.000532106, 1.2429317e-05, -0.0005321989, 0.99930173, 0.03736003, 7.458858e-06, -0.037360035, 0.99930185, 3.6379788e-10, 0.095062114, 5.2787072e-09)
@@ -289,9 +301,9 @@ bones/13/name = "index1.l"
 bones/13/parent = 3
 bones/13/rest = Transform3D(0.9962258, -0.086523004, -0.006922125, 0.08594009, 0.97202724, 0.21858072, -0.012183768, -0.2183507, 0.9757942, -0.019688198, 0.25138596, -0.07629859)
 bones/13/enabled = true
-bones/13/position = Vector3(-0.019688198, 0.25138596, -0.07629859)
-bones/13/rotation = Quaternion(-0.11000496, 0.0013247088, 0.04342053, 0.99298126)
-bones/13/scale = Vector3(0.99999994, 1.0000001, 0.9999999)
+bones/13/position = Vector3(-0.019688169, 0.25138596, -0.076298594)
+bones/13/rotation = Quaternion(-0.08867735, -0.05164678, 0.62812895, 0.7713125)
+bones/13/scale = Vector3(1, 1.0000001, 0.9999999)
 bones/14/name = "index2.l"
 bones/14/parent = 13
 bones/14/rest = Transform3D(0.9999958, -0.002870188, 5.468224e-05, 0.002870694, 0.99974793, -0.022261664, 9.226699e-06, 0.02226173, 0.9997521, -2.0954758e-09, 0.08575362, 2.415618e-09)
@@ -473,7 +485,7 @@ bones/39/rest = Transform3D(0.08266716, 0.9964359, -0.016783323, -0.996577, 0.08
 bones/39/enabled = true
 bones/39/position = Vector3(2.3682895, 0.004878223, -0.024425063)
 bones/39/rotation = Quaternion(0.006113813, -0.005778269, -0.6772245, 0.7357284)
-bones/39/scale = Vector3(0.9999998, 1, 1)
+bones/39/scale = Vector3(0.9999999, 1, 0.99999994)
 bones/40/name = "IK pole.r"
 bones/40/parent = 0
 bones/40/rest = Transform3D(-3.2663345e-05, 0, -1, -1, 0, 3.2663345e-05, 0, 0.99999994, 0, 1.7129503, 0.010514647, 0.7466446)
@@ -482,60 +494,166 @@ bones/40/position = Vector3(1.7129503, 0.010514647, 0.7466446)
 bones/40/rotation = Quaternion(-0.49999183, 0.50000817, 0.50000817, -0.49999183)
 bones/40/scale = Vector3(1, 0.99999994, 1)
 
-[node name="save 1 arms_001" type="MeshInstance3D" parent="head/cam_holder/Camera3D/arms"]
+[node name="save 1 arms_001" type="MeshInstance3D" parent="head/cam_holder/Camera3D/arms" unique_id=1547382697]
 mesh = SubResource("ArrayMesh_i3pqv")
 skin = SubResource("Skin_hqtel")
 
-[node name="leftarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
+[node name="AimModifier3D" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms" unique_id=1099784498]
+active = false
+setting_count = 1
+settings/0/amount = 1.0
+settings/0/apply_bone_name = "bicep.r"
+settings/0/apply_bone = 19
+settings/0/reference_type = 1
+settings/0/reference_node = NodePath("../../gun_holder/R_hand")
+settings/0/forward_axis = 2
+settings/0/use_euler = false
+settings/0/relative = true
+
+[node name="leftarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms" unique_id=1950073537]
+active = false
 setting_count = 1
 settings/0/amount = 1.0
 settings/0/apply_bone_name = "forearm.l"
 settings/0/apply_bone = 2
+settings/0/reference_type = 0
 settings/0/reference_bone_name = "IK target.l"
 settings/0/reference_bone = 37
 settings/0/forward_axis = 2
 settings/0/use_euler = false
+settings/0/relative = true
 
-[node name="rightarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
+[node name="rightarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms" unique_id=1617419387]
 active = false
 setting_count = 1
 settings/0/amount = 1.0
 settings/0/apply_bone_name = "forearm.r"
 settings/0/apply_bone = 20
+settings/0/reference_type = 0
 settings/0/reference_bone_name = "IK target.r"
 settings/0/reference_bone = 39
 settings/0/forward_axis = 2
 settings/0/use_euler = false
+settings/0/relative = true
 
-[node name="hand_to_gun_l" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
+[node name="hand_to_gun_l" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms" unique_id=1321966930]
 active = false
 setting_count = 1
 settings/0/amount = 1.0
 settings/0/apply_bone_name = "IK target.l"
 settings/0/apply_bone = 37
-settings/0/reference_bone_name = ""
-settings/0/reference_bone = -1
+settings/0/reference_type = 1
+settings/0/reference_node = NodePath("../../gun_holder")
 settings/0/forward_axis = 2
 settings/0/use_euler = false
+settings/0/relative = true
 
-[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="head/cam_holder/Camera3D/arms"]
-active = false
+[node name="FABRIK3D" type="FABRIK3D" parent="head/cam_holder/Camera3D/arms" unique_id=533274785]
+max_iterations = 2
+angular_delta_limit = 3.141592653589793
+deterministic = true
 setting_count = 1
+settings/0/target_node = NodePath("../../gun_holder/l_hand")
+settings/0/root_bone_name = "bicep.l"
+settings/0/root_bone = 1
+settings/0/end_bone_name = "palm.l"
+settings/0/end_bone = 3
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/0/joints/0/bone = 1
+settings/0/joints/1/bone = 2
+settings/0/joints/2/bone = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+
+[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="head/cam_holder/Camera3D/arms" unique_id=1937574975]
+setting_count = 2
 settings/0/amount = 1.0
-settings/0/apply_bone_name = "IK target.l"
-settings/0/apply_bone = 37
-settings/0/reference_bone_name = ""
-settings/0/reference_bone = -1
-settings/0/copy = 7
+settings/0/apply_bone_name = "palm.l"
+settings/0/apply_bone = 3
+settings/0/reference_type = 1
+settings/0/reference_node = NodePath("../../gun_holder/l_hand")
+settings/1/amount = 1.0
+settings/1/apply_bone_name = "palm.r"
+settings/1/apply_bone = 21
+settings/1/reference_type = 1
+settings/1/reference_node = NodePath("../../gun_holder/R_hand")
+settings/0/copy = 2
 settings/0/axes = 7
 settings/0/invert = 0
-settings/0/relative = true
 settings/0/additive = false
+settings/1/copy = 2
+settings/1/axes = 7
+settings/1/invert = 0
+settings/1/additive = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="BoneTwistDisperser3D" type="BoneTwistDisperser3D" parent="head/cam_holder/Camera3D/arms" unique_id=134963156]
+setting_count = 2
+settings/0/root_bone_name = "bicep.l"
+settings/0/root_bone = 1
+settings/0/end_bone_name = "palm.l"
+settings/0/end_bone = 3
+settings/0/extend_end_bone = true
+settings/0/end_bone_direction = 6
+settings/0/twist_from_rest = true
+settings/0/disperse_mode = 0
+settings/0/joint_count = 3
+settings/0/joints/0/bone = 1
+settings/0/joints/1/bone = 2
+settings/0/joints/2/bone = 3
+settings/1/root_bone_name = "forearm.r"
+settings/1/root_bone = 20
+settings/1/end_bone_name = "palm.r"
+settings/1/end_bone = 21
+settings/1/extend_end_bone = true
+settings/1/end_bone_direction = 6
+settings/1/twist_from_rest = true
+settings/1/disperse_mode = 0
+settings/1/joint_count = 2
+settings/1/joints/0/bone = 20
+settings/1/joints/1/bone = 21
+
+[node name="FABRIK3D2" type="FABRIK3D" parent="head/cam_holder/Camera3D/arms" unique_id=1197411345]
+angular_delta_limit = 3.141592653589793
+setting_count = 2
+settings/0/target_node = NodePath("../../gun_holder/magnet r")
+settings/1/target_node = NodePath("../../gun_holder/R_hand")
+settings/0/root_bone_name = "bicep.r"
+settings/0/root_bone = 19
+settings/0/end_bone_name = "forearm.r"
+settings/0/end_bone = 20
+settings/0/extend_end_bone = false
+settings/0/joint_count = 2
+settings/0/joints/0/bone = 19
+settings/0/joints/1/bone = 20
+settings/1/root_bone_name = "bicep.r"
+settings/1/root_bone = 19
+settings/1/end_bone_name = "palm.r"
+settings/1/end_bone = 21
+settings/1/extend_end_bone = false
+settings/1/joint_count = 3
+settings/1/joints/0/bone = 19
+settings/1/joints/1/bone = 20
+settings/1/joints/2/bone = 21
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/1/joints/0/rotation_axis = 2
+settings/1/joints/0/limitation = null
+settings/1/joints/1/rotation_axis = 3
+settings/1/joints/1/limitation = null
+settings/1/joints/2/rotation_axis = 3
+settings/1/joints/2/limitation = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840878810]
 shape = SubResource("CapsuleShape3D_4flbx")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1465272637]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -544,14 +662,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="fps_counter" type="Label" parent="Control"]
+[node name="fps_counter" type="Label" parent="Control" unique_id=1638866059]
 layout_mode = 0
 offset_left = 31.0
 offset_top = 21.0
 offset_right = 71.0
 offset_bottom = 44.0
 
-[node name="int_indicator" type="Control" parent="Control"]
+[node name="int_indicator" type="Control" parent="Control" unique_id=1875604339]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -567,7 +685,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="int_label" type="Label" parent="Control/int_indicator"]
+[node name="int_label" type="Label" parent="Control/int_indicator" unique_id=75774925]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -585,7 +703,7 @@ text = "<F>"
 label_settings = SubResource("LabelSettings_1jxqw")
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="Control/int_indicator"]
+[node name="ColorRect" type="ColorRect" parent="Control/int_indicator" unique_id=402328970]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -601,7 +719,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/int_indicator"]
+[node name="TextureRect" type="TextureRect" parent="Control/int_indicator" unique_id=1108238074]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -617,4 +735,4 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="gun_follow" type="Marker3D" parent="."]
+[node name="gun_follow" type="Marker3D" parent="." unique_id=2126268839]
