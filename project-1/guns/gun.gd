@@ -8,6 +8,11 @@ var sight_pos
 @export var flash = preload("res://guns/muzzleflash.tscn")
 @export var base_flash_size = 0.5
 
+
+@export var vrecoil = 4.0
+@export var hrecoil = 2.0
+@export var recoil_reset_speed = 0.4
+
 @onready var bullet = preload("res://guns/9_mm.tscn")
 @onready var main = get_tree().get_first_node_in_group("world")
 var sender
@@ -32,6 +37,7 @@ func shoot():
 	#$bullet_marker/Sprite3D.rotation.z = randi_range(-20, 20)
 	main.add_child.call_deferred(new_bullet)
 	muzzleflash()
+	recoil()
 
 func muzzleflash():
 	var newflash = flash.instantiate()
@@ -42,3 +48,7 @@ func muzzleflash():
 		#newflash.max_size * $gun_muzzle.get_child(0).gun_muzzle.flash_mult
 		$gun_muzzle.get_child(0).gun_muzzle.add_child(newflash)
 		print("blaaaaa")
+
+
+func recoil():
+	get_parent().recoil(randf_range(vrecoil * 0.75, vrecoil * 1.5), recoil_reset_speed)

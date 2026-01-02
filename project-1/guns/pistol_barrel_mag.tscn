@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://xg2yaaxujmo"]
+[gd_scene format=3 uid="uid://xg2yaaxujmo"]
 
 [ext_resource type="PackedScene" uid="uid://bo2aiyu6avn4m" path="res://guns/pistol_mag_1.tscn" id="1_xcebf"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yag1i"]
 
-[node name="pistol barrel mag" instance=ExtResource("1_xcebf")]
+[node name="pistol barrel mag" unique_id=1040187254 instance=ExtResource("1_xcebf")]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.103, 0, -0.37591824, 0)
+[node name="MeshInstance3D" parent="." index="0" unique_id=1452195417]
+transform = Transform3D(0.033657007, 0, 0, 0, 0.25426835, 0, 0, 0, 0.06377088, 0, -0.123831585, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1" unique_id=1118338361]
+transform = Transform3D(0.19999997, 0, 0, 0, 0.19634467, -0.019602146, 0, 0.03806242, 0.101117514, 0, -0.42673665, -0.025982179)
 mesh = SubResource("BoxMesh_yag1i")

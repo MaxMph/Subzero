@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b435vk07a87nx"]
+[gd_scene format=3 uid="uid://b435vk07a87nx"]
 
 [ext_resource type="Script" uid="uid://ddred2bt2y2pi" path="res://guns/sights.gd" id="1_f45c2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kgjrc"]
 
-[node name="ironsights_1" type="Node3D"]
+[node name="ironsights_1" type="Node3D" unique_id=495727474]
 script = ExtResource("1_f45c2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.019360585, 0, 0, 0, 0.037076022, 0, 0, 0, 0.03775645, 0, 0.013452884, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1548843586]
+transform = Transform3D(0.007752231, 0, 0, 0, 0.017256014, 0, 0, 0, 0.03775645, 0, 0.01215357, 0)
 mesh = SubResource("BoxMesh_kgjrc")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.040739845, 0, 0, 0, 0.024446722, 0, 0, 0, 0.04120709, 0, 0.0029550567, 0)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=496684970]
+transform = Transform3D(0.03020481, 0, 0, 0, 0.013260868, 0, 0, 0, 0.04120709, 0, 0.0029550567, 0)
 mesh = SubResource("BoxMesh_kgjrc")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=575836579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019093826, 0)

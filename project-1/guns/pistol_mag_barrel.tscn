@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://06qc4kq3q4fn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oy3nb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oy3nb"]
+
+[node name="pistol_mag_barrel" type="Node3D" unique_id=901828662]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1096905546]
+transform = Transform3D(-2.1979167e-09, -3.4339607e-09, 0.264, -0.26140794, 0.015111185, -7.881962e-17, -0.05028247, -0.07855986, -1.1539807e-08, 0.00015698471, -0.4117391, -0.04935318)
+mesh = SubResource("CylinderMesh_oy3nb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1584167813]
+transform = Transform3D(0.027297558, 0, 0, 0, 0.33776602, 0, 0, 0, 0.076522835, 0, -0.16685769, 0)
+mesh = SubResource("BoxMesh_oy3nb")

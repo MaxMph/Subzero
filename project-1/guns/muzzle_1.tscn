@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwallvckox45x"]
+[gd_scene format=3 uid="uid://dwallvckox45x"]
 
 [ext_resource type="Script" uid="uid://2i88n2w43u8x" path="res://guns/muzzle.gd" id="1_tn5nr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yj153"]
 
-[node name="muzzle 1" type="Node3D"]
+[node name="muzzle 1" type="Node3D" unique_id=1469334650]
 script = ExtResource("1_tn5nr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.14096664, 0, 0, 0, 0.11832911, 0, 0, 0, 0.48753682, 0, 0, -0.23218636)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1882857313]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.3, 0, 0, -0.16683277)
 mesh = SubResource("BoxMesh_yj153")
 
-[node name="gun_muzzle" type="Node3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1012473223]
+transform = Transform3D(0.0448, 0, 0, 0, 0.043199997, 0, 0, 0, 0.21000001, 0, 0, -0.099429876)
+mesh = SubResource("BoxMesh_yj153")
+
+[node name="gun_muzzle" type="Node3D" parent="." unique_id=2092135237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5161167)

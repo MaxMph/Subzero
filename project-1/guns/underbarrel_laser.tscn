@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c61y7qmmvm7cb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjh86"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m4lss"]
+
+[node name="underbarrel_laser" type="Node3D" unique_id=356446836]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=869298644]
+transform = Transform3D(0.07134909, 0, 0, 0, 0.04857034, 0, 0, 0, 0.11737806, 0, -0.020194072, 0)
+mesh = SubResource("BoxMesh_bjh86")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1002245578]
+transform = Transform3D(0.029501513, 0, 0, 0, -5.946491e-10, -0.064795695, 0, 0.013603986, -2.8323097e-09, 0, -0.038985148, 0.051808685)
+mesh = SubResource("BoxMesh_bjh86")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=688809744]
+transform = Transform3D(0.087120004, 0, 0, 0, -3.1164535e-09, 0.08316, 0, -0.07129615, -3.635039e-09, 0, -0.053289194, -0.022287512)
+mesh = SubResource("CylinderMesh_m4lss")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=756837251]
+transform = Transform3D(0.1, 0, 0, 0, -1.7047441e-09, 0.1, 0, -0.039, -4.371139e-09, 0, -0.050435256, 2.2045952e-09)
+mesh = SubResource("CylinderMesh_m4lss")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1579241869]
+transform = Transform3D(0.072000004, 0, 0, 0, -5.9671723e-10, 0.072000004, 0, -0.013651299, -3.14722e-09, 0, -0.05301646, -0.0882786)
+mesh = SubResource("CylinderMesh_m4lss")
+skeleton = NodePath("../MeshInstance3D")

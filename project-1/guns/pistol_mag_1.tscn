@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo2aiyu6avn4m"]
+[gd_scene format=3 uid="uid://bo2aiyu6avn4m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yag1i"]
 
-[node name="pistol mag 1" type="Node3D"]
+[node name="pistol mag 1" type="Node3D" unique_id=675574802]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.054295305, 0, 0, 0, 0.28881964, 0, 0, 0, 0.102874845, 0, -0.1336584, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1452195417]
+transform = Transform3D(0.027297558, 0, 0, 0, 0.28358567, 0, 0, 0, 0.076522835, 0, -0.13938653, 0)
 mesh = SubResource("BoxMesh_yag1i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=794478026]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.07015284, -0.061932556, 0, 0.0430719, 1.3853409, 0, -0.50247556, -0.21259438)
+mesh = SubResource("BoxMesh_yag1i")
+skeleton = NodePath("../..")
