@@ -1,8 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cn60v3e0rhgr7"]
-
-[ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="2_onrkg"]
+[gd_scene load_steps=4 format=4 uid="uid://cnyju5no6ob0j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owdrq"]
 resource_name = "Material.002"
@@ -10,7 +6,7 @@ cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i3pqv"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_b0oyy"]
 resource_name = "arms_Cube_003"
 _surfaces = [{
 "aabb": AABB(-2.8674235, -0.09376341, -0.21369436, 5.734851, 0.19762225, 0.34238797),
@@ -30,7 +26,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_hqtel"]
+[sub_resource type="Skin" id="Skin_tb5ax"]
 resource_name = "Skin"
 bind_count = 41
 bind/0/name = &"root"
@@ -157,43 +153,9 @@ bind/40/name = &"IK pole.r"
 bind/40/bone = -1
 bind/40/pose = Transform3D(-3.2707056e-05, -1, 0, 0, 0, 1.0000001, -1, 3.2707056e-05, 0, 0.010570672, -0.7466447, 1.71295)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+[node name="arms" type="Node3D"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
-font_size = 9
-
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("head", "cam") groups=["player"]]
-script = ExtResource("1_4flbx")
-head = NodePath("head")
-cam = NodePath("head/cam_holder/Camera3D")
-
-[node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-
-[node name="cam_holder" type="Node3D" parent="head"]
-
-[node name="Camera3D" type="Camera3D" parent="head/cam_holder"]
-
-[node name="interact_cast" type="RayCast3D" parent="head/cam_holder/Camera3D"]
-unique_name_in_owner = true
-target_position = Vector3(0, 0, -2)
-
-[node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27574974, -0.351874, -0.79449916)
-script = ExtResource("2_i3pqv")
-
-[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" instance=ExtResource("2_onrkg")]
-
-[node name="cam ani" type="AnimationPlayer" parent="head/cam_holder/Camera3D"]
-
-[node name="root_gun_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
-
-[node name="sight_pos" type="Marker3D" parent="head/cam_holder/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="arms" type="Skeleton3D" parent="head/cam_holder/Camera3D"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+[node name="arms" type="Skeleton3D" parent="."]
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -221,7 +183,7 @@ bones/3/rest = Transform3D(0.99582934, 0.09121797, -0.0017453961, -0.09119612, 0
 bones/3/enabled = true
 bones/3/position = Vector3(2.704752e-09, 0.6555931, 3.806008e-09)
 bones/3/rotation = Quaternion(0.024069846, 0.0002267393, -0.045664404, 0.99866676)
-bones/3/scale = Vector3(1, 1.0000001, 1)
+bones/3/scale = Vector3(0.99999994, 1.0000001, 1)
 bones/4/name = "pinky1.l"
 bones/4/parent = 3
 bones/4/rest = Transform3D(0.9967674, -0.08033979, 0.0004856791, 0.07767457, 0.96212035, -0.26132542, 0.020527553, 0.26051837, 0.96525055, -0.018750653, 0.24318285, 0.086592644)
@@ -457,9 +419,9 @@ bones/37/name = "IK target.l"
 bones/37/parent = 0
 bones/37/rest = Transform3D(0.08266716, -0.9964359, 0.016783323, 0.996577, 0.082659185, -0.0011698405, -0.00022162493, 0.016822582, 0.9998585, -2.3682895, 0.004878223, -0.024425063)
 bones/37/enabled = true
-bones/37/position = Vector3(-2.5270212, -0.0058027506, -0.026598824)
-bones/37/rotation = Quaternion(0.044552807, -0.02961971, 0.6766011, 0.7344036)
-bones/37/scale = Vector3(0.9999996, 1.0000001, 0.99999976)
+bones/37/position = Vector3(-2.2395332, -0.0058027375, -0.026598824)
+bones/37/rotation = Quaternion(0.006113813, 0.005778269, 0.6772245, 0.7357284)
+bones/37/scale = Vector3(0.9999998, 1, 0.9999999)
 bones/38/name = "IK pole.l"
 bones/38/parent = 0
 bones/38/rest = Transform3D(-3.2663345e-05, 0, 1, 1, 0, 3.2663345e-05, 0, 0.99999994, 0, -1.7129503, 0.010514647, 0.7466446)
@@ -482,139 +444,6 @@ bones/40/position = Vector3(1.7129503, 0.010514647, 0.7466446)
 bones/40/rotation = Quaternion(-0.49999183, 0.50000817, 0.50000817, -0.49999183)
 bones/40/scale = Vector3(1, 0.99999994, 1)
 
-[node name="save 1 arms_001" type="MeshInstance3D" parent="head/cam_holder/Camera3D/arms"]
-mesh = SubResource("ArrayMesh_i3pqv")
-skin = SubResource("Skin_hqtel")
-
-[node name="leftarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
-setting_count = 1
-settings/0/amount = 1.0
-settings/0/apply_bone_name = "forearm.l"
-settings/0/apply_bone = 2
-settings/0/reference_bone_name = "IK target.l"
-settings/0/reference_bone = 37
-settings/0/forward_axis = 2
-settings/0/use_euler = false
-
-[node name="rightarm_IK" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
-active = false
-setting_count = 1
-settings/0/amount = 1.0
-settings/0/apply_bone_name = "forearm.r"
-settings/0/apply_bone = 20
-settings/0/reference_bone_name = "IK target.r"
-settings/0/reference_bone = 39
-settings/0/forward_axis = 2
-settings/0/use_euler = false
-
-[node name="hand_to_gun_l" type="AimModifier3D" parent="head/cam_holder/Camera3D/arms"]
-active = false
-setting_count = 1
-settings/0/amount = 1.0
-settings/0/apply_bone_name = "IK target.l"
-settings/0/apply_bone = 37
-settings/0/reference_bone_name = ""
-settings/0/reference_bone = -1
-settings/0/forward_axis = 2
-settings/0/use_euler = false
-
-[node name="CopyTransformModifier3D" type="CopyTransformModifier3D" parent="head/cam_holder/Camera3D/arms"]
-active = false
-setting_count = 1
-settings/0/amount = 1.0
-settings/0/apply_bone_name = "IK target.l"
-settings/0/apply_bone = 37
-settings/0/reference_bone_name = ""
-settings/0/reference_bone = -1
-settings/0/copy = 7
-settings/0/axes = 7
-settings/0/invert = 0
-settings/0/relative = true
-settings/0/additive = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_4flbx")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="fps_counter" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 21.0
-offset_right = 71.0
-offset_bottom = 44.0
-
-[node name="int_indicator" type="Control" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="int_label" type="Label" parent="Control/int_indicator"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "<F>"
-label_settings = SubResource("LabelSettings_1jxqw")
-horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Control/int_indicator"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/int_indicator"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.5
-offset_top = -3.5
-offset_right = 3.5
-offset_bottom = 3.5
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 1
-
-[node name="gun_follow" type="Marker3D" parent="."]
+[node name="save 1 arms_001" type="MeshInstance3D" parent="arms"]
+mesh = SubResource("ArrayMesh_b0oyy")
+skin = SubResource("Skin_tb5ax")
