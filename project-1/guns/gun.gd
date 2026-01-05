@@ -49,4 +49,4 @@ func muzzleflash():
 	else:
 		#newflash.max_size * $gun_muzzle.get_child(0).gun_muzzle.flash_mult
 		$gun_muzzle.get_child(0).gun_muzzle.add_child(newflash)
-		print("blaaaaa")
+		#print("blaaaaa")

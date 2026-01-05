@@ -10,6 +10,13 @@ texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xhacu"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_duv0e"]
+size = Vector3(0.08, 0.08, 0.08)
+
+[sub_resource type="Curve" id="Curve_duv0e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="bullet_decal" type="Node3D" unique_id=1294884547]
 script = ExtResource("1_duv0e")
 
@@ -22,5 +29,19 @@ mesh = SubResource("PlaneMesh_xhacu")
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1416027681]
+emitting = false
+amount = 12
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+mesh = SubResource("BoxMesh_duv0e")
+direction = Vector3(0, 0, -1)
+gravity = Vector3(0, -4, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+scale_amount_curve = SubResource("Curve_duv0e")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,10 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://b435vk07a87nx" path="res://guns/ironsights_1.tscn" id="2_bpysr"]
 [ext_resource type="PackedScene" uid="uid://xg2yaaxujmo" path="res://guns/pistol_barrel_mag.tscn" id="2_cxyyq"]
 [ext_resource type="PackedScene" uid="uid://dwallvckox45x" path="res://guns/muzzle_1.tscn" id="2_lhf1u"]
+[ext_resource type="Texture2D" uid="uid://beku401xdgrrc" path="res://textures/172_concrete wall texture-seamless.jpg" id="5_d6r2q"]
 [ext_resource type="PackedScene" uid="uid://c61y7qmmvm7cb" path="res://guns/underbarrel_laser.tscn" id="5_yhgb5"]
 [ext_resource type="AudioStream" uid="uid://b0yywxk6jpgel" path="res://audio/9mm-pistol-shot-6349.mp3" id="6_oyt12"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2napi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1oo4"]
+albedo_color = Color(0.5796905, 0.5699673, 0.53089267, 1)
+albedo_texture = ExtResource("5_d6r2q")
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iaybd"]
 resource_name = "Material"
@@ -114,6 +120,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c7if6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6r2q"]
+albedo_color = Color(0.5802699, 0.44312516, 0.24608651, 1)
+albedo_texture = ExtResource("5_d6r2q")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66o80"]
 
@@ -281,30 +291,37 @@ transform = Transform3D(1, 0, 0, 0, 0.94987947, 0.31261674, 0, -0.31261674, 0.94
 transform = Transform3D(-5.6824803e-09, 0, -0.13, 0, 0.13, 0, 0.13, 0, -5.6824803e-09, 8.630373e-09, -0.06696756, -0.1974399)
 
 [node name="Cube" type="MeshInstance3D" parent="model" unique_id=723497594]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_cxyyq")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="model" unique_id=343503619]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_yhgb5")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="model" unique_id=865750055]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_oyt12")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="MeshInstance3D" parent="model" unique_id=562228690]
+material_override = SubResource("StandardMaterial3D_d6r2q")
 mesh = SubResource("ArrayMesh_d6r2q")
 skeleton = NodePath("")
 
 [node name="Cube_004" type="MeshInstance3D" parent="model" unique_id=1318620110]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_i1oo4")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="model" unique_id=735584216]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_a1f7k")
 skeleton = NodePath("")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="model" unique_id=2085058361]
+material_override = SubResource("StandardMaterial3D_i1oo4")
 mesh = SubResource("ArrayMesh_l5nqj")
 skeleton = NodePath("")
 

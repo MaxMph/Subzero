@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beku401xdgrrc"
-path.s3tc="res://.godot/imported/172_concrete wall texture-seamless.jpg-174ae2f9d7f2e12d117dcf98b81af949.s3tc.ctex"
+uid="uid://dx3ytddpq0uq0"
+path.s3tc="res://.godot/imported/skin2.png-f3190eae26f7a3b9562457d294c7c32f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/172_concrete wall texture-seamless.jpg"
-dest_files=["res://.godot/imported/172_concrete wall texture-seamless.jpg-174ae2f9d7f2e12d117dcf98b81af949.s3tc.ctex"]
+source_file="res://textures/skin2.png"
+dest_files=["res://.godot/imported/skin2.png-f3190eae26f7a3b9562457d294c7c32f.s3tc.ctex"]
 
 [params]
 

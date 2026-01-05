@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ha5y3dfaa0jn"]
+
+[ext_resource type="Script" uid="uid://ch30etfpsecjv" path="res://enemies/zombie_1.gd" id="1_68e4p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nch18"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_68e4p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcoim"]
+radius = 15.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68e4p"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hcoim"]
+
+[node name="zombie 1" type="CharacterBody3D" unique_id=1076585951]
+script = ExtResource("1_68e4p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1863279526]
+mesh = SubResource("CapsuleMesh_nch18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=37553766]
+shape = SubResource("CapsuleShape3D_68e4p")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2121171238]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1585543409]
+shape = SubResource("SphereShape3D_hcoim")
+
+[node name="tracker" type="RayCast3D" parent="." unique_id=404403204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+target_position = Vector3(0, 0, -25)
+
+[node name="head" type="Node3D" parent="." unique_id=1433742330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="eyes" type="RayCast3D" parent="head" unique_id=1940172341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+target_position = Vector3(0, 0, -25)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head" unique_id=1625435314]
+transform = Transform3D(0.9, 0, 0, 0, -8.7422745e-09, 0.9, 0, -0.19999993, -3.934025e-08, 0, -1.5610683e-08, -0.35713077)
+material_override = SubResource("StandardMaterial3D_68e4p")
+mesh = SubResource("CylinderMesh_hcoim")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

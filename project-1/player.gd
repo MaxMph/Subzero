@@ -88,12 +88,12 @@ func cam_holder_ani(delta):
 	var move_speed = abs(velocity.x) + abs(velocity.z)
 	if move_speed > 0.4:
 		$head/cam_holder.position.y = sin(time * (8)) * (0.1 * (move_speed/4))
-		print(move_speed)
+		#print(move_speed)
 	else:
 		$head/cam_holder.position.y = move_toward($head/cam_holder.position.y, 0.0, delta * 1)
 
 func gun_pos(delta):
-	$gun_follow.global_position = lerp($gun_follow.global_position, $head/cam_holder/Camera3D/root_gun_pos.global_position, 22 * delta)
+	$gun_follow.global_position = lerp($gun_follow.global_position, $head/cam_holder/Camera3D/root_gun_pos.global_position, 20 * delta)
 	%gun_holder.global_position = $gun_follow.global_position
 
 func get_gun():

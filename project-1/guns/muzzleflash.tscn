@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0656ih23x7bn"]
+[gd_scene format=3 uid="uid://c0656ih23x7bn"]
 
 [ext_resource type="Script" uid="uid://7xa26qos35gn" path="res://guns/muzzleflash.gd" id="1_g81o0"]
 [ext_resource type="Texture2D" uid="uid://bx46tuuk42h0r" path="res://textures/muzzle_flash (another copy).png" id="2_l2eby"]
@@ -65,20 +65,19 @@ _data = {
 &"flash": SubResource("Animation_giwxv")
 }
 
-[node name="muzzleflash" type="Node3D"]
+[node name="muzzleflash" type="Node3D" unique_id=1517625376]
 script = ExtResource("1_g81o0")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2105619266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.17620184)
 modulate = Color(1, 1, 1, 0)
 pixel_size = 0.002
 texture_filter = 0
 texture = ExtResource("2_l2eby")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_e2nfo")
-}
-autoplay = "flash"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1974798490]
+libraries/ = SubResource("AnimationLibrary_e2nfo")
+autoplay = &"flash"
+speed_scale = 1.8
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

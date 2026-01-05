@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="2_onrkg"]
 [ext_resource type="PackedScene" uid="uid://bo2aiyu6avn4m" path="res://guns/pistol_mag_1.tscn" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dx3ytddpq0uq0" path="res://textures/skin2.png" id="5_sweqy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
+albedo_color = Color(0.93432236, 0.8577775, 0.803191, 1)
+albedo_texture = ExtResource("5_sweqy")
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owdrq"]
 resource_name = "Material.002"
@@ -505,6 +512,7 @@ bones/40/rotation = Quaternion(-0.49999183, 0.50000817, 0.50000817, -0.49999183)
 bones/40/scale = Vector3(1, 0.99999994, 1)
 
 [node name="save 1 arms_001" type="MeshInstance3D" parent="head/cam_holder/Camera3D/arms" unique_id=1547382697]
+material_override = SubResource("StandardMaterial3D_2hs0m")
 mesh = SubResource("ArrayMesh_i3pqv")
 skin = SubResource("Skin_hqtel")
 

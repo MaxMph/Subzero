@@ -7,7 +7,8 @@ var start_fade = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	await get_tree().create_timer(0.01).timeout#Engine.get_process_frames()
+	$CPUParticles3D.emitting = true
 	#$MeshInstance3D.rotation.x = deg_to_rad(randi_range(0, 4) * 90)
 	#var rand_scale = randf_range(1.0, scale_randomization)
 	#scale = Vector3(rand_scale, rand_scale, rand_scale)

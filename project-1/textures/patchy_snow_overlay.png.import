@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beku401xdgrrc"
-path.s3tc="res://.godot/imported/172_concrete wall texture-seamless.jpg-174ae2f9d7f2e12d117dcf98b81af949.s3tc.ctex"
+uid="uid://b6o8xb5r8tmuk"
+path.s3tc="res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/172_concrete wall texture-seamless.jpg"
-dest_files=["res://.godot/imported/172_concrete wall texture-seamless.jpg-174ae2f9d7f2e12d117dcf98b81af949.s3tc.ctex"]
+source_file="res://textures/patchy_snow_overlay.png"
+dest_files=["res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.s3tc.ctex"]
 
 [params]
 
