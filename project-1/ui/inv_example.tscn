@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bykcyytsnt8nf"]
+
+[ext_resource type="PackedScene" uid="uid://be4w0peuijnfv" path="res://ui/container_1.tscn" id="1_cpk5l"]
+[ext_resource type="Script" uid="uid://duiyj5wcp0qyi" path="res://ui/inv_example.gd" id="1_rycr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty2m1"]
+
+[node name="inv example" type="Control" unique_id=1443707995]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rycr6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=633893670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="container 1" parent="HBoxContainer" unique_id=1548890779 instance=ExtResource("1_cpk5l")]
+layout_mode = 2
+
+[node name="container 2" parent="HBoxContainer" unique_id=849047875 instance=ExtResource("1_cpk5l")]
+layout_mode = 2
+
+[node name="StaticBody2D" type="AnimatableBody2D" parent="." unique_id=1710393366]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=805546538]
+shape = SubResource("RectangleShape2D_ty2m1")
+disabled = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=152029391]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1865497877]
+shape = SubResource("RectangleShape2D_ty2m1")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1806960769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1638087351]
+shape = SubResource("RectangleShape2D_ty2m1")

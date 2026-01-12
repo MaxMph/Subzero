@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cddvr0n5w0l5r" path="res://textures/brick1.tres" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://ha5y3dfaa0jn" path="res://enemies/zombie_1.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://86wc2gmhj7qj" path="res://enemies/npc_test_1.tscn" id="8_gbfbk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_036b0"]
 panorama = ExtResource("1_aqk2v")
@@ -118,3 +119,6 @@ transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 0, 1
 
 [node name="zombie 1" parent="." unique_id=1076585951 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
+
+[node name="test npc 1" parent="." unique_id=1403465938 instance=ExtResource("8_gbfbk")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, -0.5151988, 0)
