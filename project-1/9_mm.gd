@@ -15,6 +15,7 @@ var last_pos
 var sender = null
 
 func _ready() -> void:
+	ray.collision_mask = 3
 	add_sibling(ray)
 
 	global_transform = spawn_transform
@@ -44,8 +45,10 @@ func _process(delta: float) -> void:
 	velocity.y -= drop * delta
 	
 	if ray.is_colliding():
-		if ray.get_collider().is_in_group("hittable"):
-			ray.get_collider().hit(dmg, sender)
+		#if ray.get_collider().is_in_group("hittable"):
+		if ray.get_collider().has_method("hit"):
+			#ray.get_collider().hit(dmg, sender)
+			ray.get_collider().hit(dmg)
 		var new_decal = decal.instantiate()
 		ray.get_collider().add_child(new_decal)
 		new_decal.global_position = ray.get_collision_point()

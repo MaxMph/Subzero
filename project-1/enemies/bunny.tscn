@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://wvrixdxwihmb"]
+
+[ext_resource type="Script" uid="uid://dabag64yxyrpl" path="res://enemies/bunny.gd" id="1_47pjr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xtfhf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmxfn"]
+
+[node name="bunny" type="CharacterBody3D" unique_id=1997993072]
+script = ExtResource("1_47pjr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1049390734]
+mesh = SubResource("BoxMesh_xtfhf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2091423441]
+shape = SubResource("BoxShape3D_vmxfn")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=15369887]
+target_position = Vector3(0, 0, -1)
+
+[node name="idle_timer" type="Timer" parent="." unique_id=2074584264]
+one_shot = true
+
+[node name="run_timer" type="Timer" parent="." unique_id=32460012]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="idle_timer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="run_timer" to="." method="_on_run_timer_timeout"]

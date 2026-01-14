@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://ha5y3dfaa0jn" path="res://enemies/zombie_1.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://86wc2gmhj7qj" path="res://enemies/npc_test_1.tscn" id="8_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://d12wryuwbjail" path="res://enemies/enemy_try_2.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://wvrixdxwihmb" path="res://enemies/bunny.tscn" id="10_wse8f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_036b0"]
 panorama = ExtResource("1_aqk2v")
@@ -52,6 +54,8 @@ environment = SubResource("Environment_tlwt5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("StandardMaterial3D_tlwt5")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(200, 1, 200)
 
 [node name="player" parent="." unique_id=1286930778 instance=ExtResource("1_f3sb7")]
@@ -61,54 +65,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 12, 7.5, -12)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(10, 13, 10)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1114539940]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 12.2, -11)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=459548666]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 5.2, -11)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1162367338]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 12.2, 11)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=406922953]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.4, 0, -1, 0, -4.371139e-08, -11, 12.2, 0)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="." unique_id=1785028859]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1.4, 0, -1, 0, -4.371139e-08, 11, 12.200003, 0)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=206877022]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 12, 7.5, 12)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(10, 13, 10)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1763596818]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -12, 7.5, -12)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(10, 13, 10)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=949229437]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -12, 7.5, 12)
 material_override = ExtResource("4_036b0")
 use_collision = true
+collision_layer = 5
+collision_mask = 5
 size = Vector3(10, 13, 10)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1619327140]
@@ -122,3 +144,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
 
 [node name="test npc 1" parent="." unique_id=1403465938 instance=ExtResource("8_gbfbk")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, -0.5151988, 0)
+
+[node name="enemy_try2" parent="." unique_id=753511227 instance=ExtResource("9_ioo17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7436557, 0, -5.450424)
+
+[node name="bunny" parent="." unique_id=1997993072 instance=ExtResource("10_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
