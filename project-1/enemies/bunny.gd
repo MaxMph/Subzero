@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	look_at(target)
 	
 	match state:
 		states.IDLE:
@@ -76,6 +77,8 @@ func idle():
 	
 	velocity.x = 0
 	velocity.z = 0
+	
+	$AnimationPlayer.play("graze")
 
 func travel(delta):
 	if abs((global_position - target).length()) < target_allowence:
@@ -87,6 +90,8 @@ func travel(delta):
 		$RayCast3D.look_at(target)
 		if $RayCast3D.is_colliding():
 			place_target()
+		
+		$AnimationPlayer.play("walk")
 
 func run(delta):
 	if $run_timer.is_stopped():
