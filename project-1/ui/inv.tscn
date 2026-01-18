@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cnw2wgl8calqv"]
+
+[ext_resource type="Script" uid="uid://68njt3vuby60" path="res://ui/inv.gd" id="1_ahnkl"]
+
+[node name="inv" type="Control" unique_id=76155194]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahnkl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1288109798]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="print inv" type="Button" parent="VBoxContainer" unique_id=1381210948]
+layout_mode = 2
+text = "print inv"
+
+[node name="remove item" type="Button" parent="VBoxContainer" unique_id=1659666674]
+layout_mode = 2
+text = "remove item"
+
+[node name="add item" type="Button" parent="VBoxContainer" unique_id=435828605]
+layout_mode = 2
+text = "add item"
+
+[connection signal="pressed" from="VBoxContainer/print inv" to="." method="_on_print_inv_pressed"]
+[connection signal="pressed" from="VBoxContainer/remove item" to="." method="_on_remove_item_pressed"]
+[connection signal="pressed" from="VBoxContainer/add item" to="." method="_on_add_item_pressed"]

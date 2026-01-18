@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_res" format=3 uid="uid://bfad334r0lehq"]
+
+[ext_resource type="Script" uid="uid://bt5pfqud1y7xp" path="res://items/item_res.gd" id="1_7mv65"]
+
+[resource]
+script = ExtResource("1_7mv65")
+item_name = "Stick"
+weight = 0.25
+value = 2
+metadata/_custom_type_script = "uid://bt5pfqud1y7xp"

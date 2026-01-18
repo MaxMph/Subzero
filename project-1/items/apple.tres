@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_res" format=3 uid="uid://c5u45k3so8arj"]
+
+[ext_resource type="Script" uid="uid://bt5pfqud1y7xp" path="res://items/item_res.gd" id="1_pv0u0"]
+
+[resource]
+script = ExtResource("1_pv0u0")
+item_name = "Apple"
+weight = 0.25
+value = 8
+metadata/_custom_type_script = "uid://bt5pfqud1y7xp"

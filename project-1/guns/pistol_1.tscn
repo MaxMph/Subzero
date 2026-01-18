@@ -259,7 +259,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2v5tp")
 
-[node name="pistol 1" type="Node3D" unique_id=1328500472]
+[node name="pistol 1" type="Node3D" unique_id=1328500472 groups=["gun"]]
 script = ExtResource("1_2napi")
 mag = ExtResource("2_cxyyq")
 sight = ExtResource("2_bpysr")

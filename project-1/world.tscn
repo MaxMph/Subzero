@@ -5,10 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdx1prgm1g6jn" path="res://textures/snow_grass_128.jpg" id="2_036b0"]
 [ext_resource type="Texture2D" uid="uid://c5q6ptolnf83a" path="res://textures/snow drift normalmap.png" id="3_dwbse"]
 [ext_resource type="Material" uid="uid://cddvr0n5w0l5r" path="res://textures/brick1.tres" id="4_036b0"]
-[ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://ha5y3dfaa0jn" path="res://enemies/zombie_1.tscn" id="7_pkg7o"]
-[ext_resource type="PackedScene" uid="uid://86wc2gmhj7qj" path="res://enemies/npc_test_1.tscn" id="8_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://d12wryuwbjail" path="res://enemies/enemy_try_2.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://57q6s60p60wa" path="res://items/apple.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://wvrixdxwihmb" path="res://enemies/bunny.tscn" id="10_wse8f"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_036b0"]
@@ -78,12 +75,20 @@ collision_mask = 5
 size = Vector3(30, 2, 8)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=459548666]
-transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 5.2, -11)
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 8, -11.5)
 material_override = ExtResource("4_036b0")
 use_collision = true
 collision_layer = 5
 collision_mask = 5
-size = Vector3(30, 2, 8)
+size = Vector3(30, 6, 7)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=712706997]
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, -4.5, 8.741528, -21)
+material_override = ExtResource("4_036b0")
+use_collision = true
+collision_layer = 5
+collision_mask = 5
+size = Vector3(421, 16.318604, 12)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1162367338]
 transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 12.2, 11)
@@ -136,17 +141,17 @@ size = Vector3(10, 13, 10)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1619327140]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 0)
 
-[node name="pistol 1" parent="." unique_id=1328500472 instance=ExtResource("5_036b0")]
-transform = Transform3D(2.9802322e-08, 0, -1, 0, 1, 0, 1, 0, 2.9802322e-08, 0, 1, -5.71002)
-
-[node name="zombie 1" parent="." unique_id=1076585951 instance=ExtResource("7_pkg7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
-
-[node name="test npc 1" parent="." unique_id=1403465938 instance=ExtResource("8_gbfbk")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 5, -0.5151988, 0)
-
-[node name="enemy_try2" parent="." unique_id=753511227 instance=ExtResource("9_ioo17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7436557, 0, -5.450424)
-
 [node name="bunny" parent="." unique_id=1997993072 instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+
+[node name="apple" parent="." unique_id=2004308704 instance=ExtResource("7_pkg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+
+[node name="apple2" parent="." unique_id=957041782 instance=ExtResource("7_pkg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 1)
+
+[node name="apple3" parent="." unique_id=493180280 instance=ExtResource("7_pkg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 2)
+
+[node name="apple4" parent="." unique_id=1807786614 instance=ExtResource("7_pkg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 1)

@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://bo2aiyu6avn4m" path="res://guns/pistol_mag_1.tscn" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dx3ytddpq0uq0" path="res://textures/skin2.png" id="5_sweqy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
@@ -170,6 +169,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5785124, 1), 0.0, 0.0, 0, 0, V
 point_count = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+height = 2.7495117
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
 font_size = 9
@@ -182,7 +182,7 @@ head = NodePath("head")
 cam = NodePath("head/cam_holder/Camera3D")
 
 [node name="head" type="Node3D" parent="." unique_id=1134921601]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="cam_holder" type="Node3D" parent="head" unique_id=1457685452]
 
@@ -190,15 +190,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="interact_cast" type="RayCast3D" parent="head/cam_holder/Camera3D" unique_id=1740638577]
 unique_name_in_owner = true
-target_position = Vector3(0, 0, -2)
+target_position = Vector3(0, 0, -3)
+collision_mask = 9
 
 [node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D" unique_id=2141059182]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27574974, -0.351874, -1.155582)
 script = ExtResource("2_i3pqv")
-
-[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" unique_id=1065613362 instance=ExtResource("2_onrkg")]
-mag = ExtResource("4_hqtel")
 
 [node name="l_hand" type="Node3D" parent="head/cam_holder/Camera3D/gun_holder" unique_id=263140960]
 transform = Transform3D(-0.8707351, 0.15877157, 0.46541595, -0.49135926, -0.24306262, -0.83635324, -0.019664094, -0.9569285, 0.28965685, -0.074614346, -0.119122714, 0.15749484)
@@ -215,6 +213,8 @@ visible = false
 [node name="magnet L" type="Node3D" parent="head/cam_holder/Camera3D/gun_holder" unique_id=295986533]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.47740597, -0.52297425, 0.009892821)
 visible = false
+
+[node name="pistol 1" parent="head/cam_holder/Camera3D/gun_holder" unique_id=1328500472 instance=ExtResource("2_onrkg")]
 
 [node name="cam ani" type="AnimationPlayer" parent="head/cam_holder/Camera3D" unique_id=1560489295]
 
@@ -638,6 +638,7 @@ settings/1/joints/2/bone = 21
 settings/1/joints/2/twist_amount = 0.77528095
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840878810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37475586, 0)
 shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="Control" type="Control" parent="." unique_id=1465272637]

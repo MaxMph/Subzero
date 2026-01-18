@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 @export var speed = 110.0
-@export var run_mult = 4.0
+@export var run_mult = 2.0
 @export var run_dist_mod = 2.0
 
 @export var health = 12.0
