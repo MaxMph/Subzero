@@ -11,7 +11,6 @@ var warmth = 100
 
 var jump_vel = 6
 
-var sense = 0.001
 @export var head: Node3D
 @export var cam: Camera3D
 
@@ -33,15 +32,20 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * sense)
-		cam.rotate_x(-event.relative.y * sense)
+		head.rotate_y(-event.relative.x * Global.sense)
+		cam.rotate_x(-event.relative.y * Global.sense)
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _process(delta: float) -> void:
 	time += delta
 	hunger -= time * matabolism
 	warmth -= time * 0.001
-	print(hunger)
+	
+	$Control/ColorRect.material.set_shader_parameter("blur_amount", 1 - warmth / 100)
+	$Control/HBoxContainer/hungerbar.value = hunger
+	$Control/HBoxContainer/warmthbar.value = warmth
+	
+	#print(hunger)
 	cam_holder_ani(delta)
 	gun_pos(delta)
 

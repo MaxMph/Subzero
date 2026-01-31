@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="2_onrkg"]
+[ext_resource type="Shader" uid="uid://etyuvl55cvne" path="res://vignette_blur.gdshader" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://cnw2wgl8calqv" path="res://ui/inv.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dx3ytddpq0uq0" path="res://textures/skin2.png" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://d4dgioc5ark50" path="res://ui/pause_menu.gd" id="7_1jxqw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
 albedo_color = Color(0.93432236, 0.8577775, 0.803191, 1)
@@ -174,6 +176,15 @@ height = 2.7495117
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
 font_size = 9
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw050"]
+shader = ExtResource("5_1jxqw")
+shader_parameter/blur_radius = 0.2
+shader_parameter/blur_amount = 1.0
+shader_parameter/blur_inner = 0.6000000285
+shader_parameter/blur_outer = 0.66000003135
+
+[sub_resource type="LabelSettings" id="LabelSettings_dw050"]
 
 [node name="player" type="CharacterBody3D" unique_id=1384160024 node_paths=PackedStringArray("head", "cam") groups=["player"]]
 collision_layer = 5
@@ -724,7 +735,152 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1209593363]
+material = SubResource("ShaderMaterial_dw050")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=2126915565]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -186.0
+offset_right = -7.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="hungerbar" type="ProgressBar" parent="Control/HBoxContainer" unique_id=89553211]
+custom_minimum_size = Vector2(10, 180)
+layout_mode = 2
+fill_mode = 3
+show_percentage = false
+
+[node name="warmthbar" type="ProgressBar" parent="Control/HBoxContainer" unique_id=1127311832]
+custom_minimum_size = Vector2(10, 180)
+layout_mode = 2
+fill_mode = 3
+show_percentage = false
+
 [node name="gun_follow" type="Marker3D" parent="." unique_id=2126268839]
 
 [node name="inv" parent="." unique_id=76155194 instance=ExtResource("5_2hs0m")]
 visible = false
+
+[node name="pause menu" type="Control" parent="." unique_id=1951612803]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_1jxqw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause menu" unique_id=1567780309]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="sense_panel" type="Panel" parent="pause menu/VBoxContainer" unique_id=1033908859]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+
+[node name="sense" type="HBoxContainer" parent="pause menu/VBoxContainer/sense_panel" unique_id=1999818832]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -11.5
+offset_right = 140.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="pause menu/VBoxContainer/sense_panel/sense" unique_id=2046605327]
+layout_mode = 2
+text = "Mouse Sensetivity"
+label_settings = SubResource("LabelSettings_dw050")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="pause menu/VBoxContainer/sense_panel/sense" unique_id=478733943]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="sense_slider" type="HSlider" parent="pause menu/VBoxContainer/sense_panel/sense" unique_id=13367887]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 100.0
+max_value = 4000.0
+value = 100.0
+
+[node name="volume" type="HBoxContainer" parent="pause menu/VBoxContainer" unique_id=753687351]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="pause menu/VBoxContainer/volume" unique_id=877633040]
+layout_mode = 2
+text = "Volume "
+label_settings = SubResource("LabelSettings_dw050")
+
+[node name="VSeparator" type="VSeparator" parent="pause menu/VBoxContainer/volume" unique_id=1962879808]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="sense" type="HSlider" parent="pause menu/VBoxContainer/volume" unique_id=1780439309]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+min_value = 100.0
+max_value = 4000.0
+value = 100.0
+
+[node name="resume" type="Button" parent="pause menu/VBoxContainer" unique_id=1604602304]
+layout_mode = 2
+text = "Resume"
+
+[node name="quit" type="Button" parent="pause menu/VBoxContainer" unique_id=1267083573]
+layout_mode = 2
+text = "Quit"
+
+[node name="ColorRect" type="ColorRect" parent="pause menu" unique_id=2031133921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[connection signal="value_changed" from="pause menu/VBoxContainer/sense_panel/sense/sense_slider" to="pause menu" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="pause menu/VBoxContainer/volume/sense" to="pause menu" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="pause menu/VBoxContainer/resume" to="pause menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="pause menu/VBoxContainer/quit" to="pause menu" method="_on_quit_pressed"]
