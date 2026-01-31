@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://2mtj5bjrxfb3"]
+
+[ext_resource type="PlaneMesh" uid="uid://cdhc75mlojbn5" path="res://models/branch.tres" id="1_qufsy"]
+
+[node name="branch" type="Node3D" unique_id=1046955022]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1691918966]
+mesh = ExtResource("1_qufsy")

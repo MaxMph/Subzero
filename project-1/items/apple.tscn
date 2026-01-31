@@ -1,8 +1,9 @@
-[gd_scene format=4 uid="uid://57q6s60p60wa"]
+[gd_scene format=4 uid="uid://1x3ffgr8fx5n"]
 
 [ext_resource type="Script" uid="uid://dteqfkmcgq7ii" path="res://items/item.gd" id="1_ru65o"]
 [ext_resource type="Texture2D" uid="uid://beku401xdgrrc" path="res://textures/172_concrete wall texture-seamless.jpg" id="1_vx7mh"]
 [ext_resource type="Texture2D" uid="uid://dmu2lxkndrmvk" path="res://textures/Screenshot from 2026-01-04 21-25-03.png" id="2_bjood"]
+[ext_resource type="Resource" path="res://items/apple.tres" id="2_vc0dt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tudu"]
 resource_name = "Material"
@@ -100,6 +101,7 @@ radius = 0.18487453
 [node name="apple" type="RigidBody3D" unique_id=2004308704]
 collision_layer = 8
 script = ExtResource("1_ru65o")
+item_info = ExtResource("2_vc0dt")
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=979442781]
 mesh = SubResource("ArrayMesh_3e1dn")

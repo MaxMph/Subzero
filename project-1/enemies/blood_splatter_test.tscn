@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xg34lc6uqjsc"]
+
+[ext_resource type="Texture2D" uid="uid://cb2ys8rlodyd1" path="res://textures/blood splatter.png" id="1_xyx8r"]
+
+[node name="blood_splatter" type="Node3D" unique_id=809567824]
+
+[node name="Decal" type="Decal" parent="." unique_id=528692862]
+transform = Transform3D(1, 0, 0, 0, 0.3035509, 0.95281535, 0, -0.95281535, 0.3035509, 0, -0.703197, 1.2294624)
+size = Vector3(2, 3.2861328, 2)
+texture_albedo = ExtResource("1_xyx8r")
+upper_fade = 0.00049271353
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=25735835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02758789, -1.2375869, 0.49240923)
+size = Vector3(3.8654785, 1, 6.892517)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=362841407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02758789, -0.05393207, 2.1504166)
+size = Vector3(3.8654785, 3.3673096, 1.2877655)

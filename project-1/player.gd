@@ -5,6 +5,10 @@ var speed = 4.6
 var acc = 20
 var fric = 20
 
+var hunger = 100
+var matabolism = 0.001
+var warmth = 100
+
 var jump_vel = 6
 
 var sense = 0.001
@@ -16,6 +20,8 @@ var root_gun_pos
 var time: float
 
 var item = null
+
+@onready var inv = $inv
 
 #@onready var hand_to_gun_aim: AimModifier3D = $head/cam_holder/Camera3D/arms/hand_to_gun_l
 
@@ -29,10 +35,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sense)
 		cam.rotate_x(-event.relative.y * sense)
-		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-75), deg_to_rad(75))
+		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _process(delta: float) -> void:
 	time += delta
+	hunger -= time * matabolism
+	warmth -= time * 0.001
+	print(hunger)
 	cam_holder_ani(delta)
 	gun_pos(delta)
 
@@ -83,6 +92,17 @@ func _physics_process(delta: float) -> void:
 	$Control/fps_counter.text = str(Engine.get_frames_per_second())
 
 	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("inv"):
+		if $inv.visible:
+			$inv.close()
+			#$inv.hide()
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			#$inv.show()
+			$inv.open()
+			#Input.mouse_mode = Input.mouse_mode
 
 func cam_holder_ani(delta):
 	var pos_adjustment

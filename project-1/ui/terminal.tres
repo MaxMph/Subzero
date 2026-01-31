@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://7sqq3kmcopjd"]
+
+[ext_resource type="FontFile" uid="uid://csu465kwpa6ya" path="res://ui/fonts/dogicapixel.ttf" id="1_kgxmr"]
+
+[resource]
+default_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("1_kgxmr")

@@ -15,10 +15,15 @@ var original_pos
 
 @export var idle_time_max = 6.0
 
+@export var blood_splatter = preload("res://enemies/blood_splater.tscn")
+
 enum states {IDLE, TRAVELING, jumping, RUNNING, DEAD}
 var state = states.IDLE
 
 var target: Vector3
+
+
+var is_dead = false
 
 func _ready() -> void:
 	original_pos = global_position
@@ -109,10 +114,16 @@ func run(delta):
 			place_target()
 
 func dead():
-	velocity.x = 0
-	velocity.z = 0
-	print("dead")
-	
+	if is_dead == false:
+		velocity.x = 0
+		velocity.z = 0
+		velocity.y = 8
+		$Armature/Skeleton3D/PhysicalBoneSimulator3D.active = true
+		$Armature/Skeleton3D/PhysicalBoneSimulator3D.influence = 0.1
+		$AnimationPlayer.stop()
+		#$CollisionShape3D.disabled = true
+		is_dead = true
+		$Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 
 func _on_idle_timer_timeout() -> void:
 	if state == states.IDLE:
@@ -124,10 +135,16 @@ func _on_run_timer_timeout() -> void:
 	if state == states.RUNNING:
 		state = states.IDLE
 
-func hit(dmg):
+func hit(dmg, bullet):
 	health -= dmg
 	print("hit")
 	if health <= 0.0:
 		state = states.DEAD
 	else:
 		state = states.RUNNING
+	
+	var splatter = blood_splatter.instantiate()
+	get_tree().root.add_child(splatter)
+	splatter.rotation = bullet.rotation# * 0.5
+	
+	splatter.global_position = global_position

@@ -1,0 +1,15 @@
+[gd_resource type="PlaneMesh" format=3 uid="uid://cdhc75mlojbn5"]
+
+[ext_resource type="Texture2D" uid="uid://wn63i4rsay3t" path="res://textures/409101530_e52f572c-f58f-4f0b-b529-8fded1adec5c-removebg-preview.png" id="1_sax3e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v2xa"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_sax3e")
+texture_filter = 0
+
+[resource]
+material = SubResource("StandardMaterial3D_7v2xa")
+center_offset = Vector3(0, 0, -0.725)
