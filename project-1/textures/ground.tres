@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://denskwv5gj2ac"]
+
+[ext_resource type="Texture2D" uid="uid://bdx1prgm1g6jn" path="res://textures/snow_grass_128.jpg" id="1_bfmpd"]
+[ext_resource type="Texture2D" uid="uid://c5q6ptolnf83a" path="res://textures/snow drift normalmap.png" id="2_omfjm"]
+
+[resource]
+albedo_texture = ExtResource("1_bfmpd")
+normal_enabled = true
+normal_scale = 4.0
+normal_texture = ExtResource("2_omfjm")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.0717734
+uv1_world_triplanar = true
+texture_filter = 0
