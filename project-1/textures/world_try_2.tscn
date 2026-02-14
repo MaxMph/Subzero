@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bbc4ehiu5e1ld" path="res://models/ground.res" id="9_d1joi"]
 [ext_resource type="Texture2D" uid="uid://ct1wwwx6cpjsq" path="res://textures/mdf.png" id="9_mjdt6"]
 [ext_resource type="PackedScene" uid="uid://du1outftvu7q8" path="res://models/campfire.tscn" id="10_eil5m"]
+[ext_resource type="PackedScene" uid="uid://dj08amw5p7gd7" path="res://models/log.tscn" id="10_urn51"]
+[ext_resource type="PackedScene" uid="uid://c4vmq2radt8ae" path="res://models/fence.tscn" id="11_4uu2s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_d1joi"]
 panorama = ExtResource("2_4krt5")
@@ -40,7 +42,7 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 0
 
-[node name="world try 2" type="Node3D" unique_id=1993085677]
+[node name="world try 2" type="Node3D" unique_id=1993085677 groups=["world"]]
 
 [node name="day_night" type="Node3D" parent="." unique_id=1846204996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4753766, 0)
@@ -82,6 +84,12 @@ transform = Transform3D(-0.34859437, 0, 1.2725878, 0, 1.3194687, 0, -1.2725878, 
 [node name="pine tree 10" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=449216856 instance=ExtResource("7_urn51")]
 transform = Transform3D(-0.34859437, 0, 1.2725878, 0, 1.3194687, 0, -1.2725878, 0, -0.34859437, -24.919884, -0.977685, -25.67313)
 
+[node name="pine tree 49" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=89505391 instance=ExtResource("7_urn51")]
+transform = Transform3D(-0.25881898, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881898, -14.185284, -0.977685, -18.306595)
+
+[node name="pine tree 50" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=594839454 instance=ExtResource("7_urn51")]
+transform = Transform3D(-0.653362, 0, -1.1463488, 0, 1.3194686, 0, 1.1463488, 0, -0.653362, -8.226367, -0.977685, -12.106699)
+
 [node name="pine tree 11" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=135383516 instance=ExtResource("7_urn51")]
 transform = Transform3D(-0.3137349, 0, 1.145329, 0, 1.1875217, 0, -1.145329, 0, -0.3137349, -28.429585, -0.33647156, -31.257824)
 
@@ -106,6 +114,12 @@ transform = Transform3D(-0.9274902, 0, -0.74159926, 0, 1.1875217, 0, 0.74159926,
 [node name="pine tree 18" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=1201767643 instance=ExtResource("7_urn51")]
 transform = Transform3D(0.07915523, 0, -0.99686235, 0, 1, 0, 0.99686235, 0, 0.07915523, -2.5777082, 2.9705257, 34.87677)
 
+[node name="pine tree 47" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=459358626 instance=ExtResource("7_urn51")]
+transform = Transform3D(0.07915523, 0, -0.99686235, 0, 1, 0, 0.99686235, 0, 0.07915523, -8.034995, 1.2381067, 25.056198)
+
+[node name="pine tree 48" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=1073478148 instance=ExtResource("7_urn51")]
+transform = Transform3D(0.07915523, 0, -0.99686235, 0, 1, 0, 0.99686235, 0, 0.07915523, 8.764022, 2.9705257, 27.616146)
+
 [node name="pine tree 19" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=997675455 instance=ExtResource("7_urn51")]
 transform = Transform3D(0.07915523, 0, -0.99686235, 0, 1, 0, 0.99686235, 0, 0.07915523, -25.988747, 0, 29.785862)
 
@@ -123,6 +137,9 @@ transform = Transform3D(-0.20908824, 0, -1.1689695, 0, 1.1875218, 0, 1.1689695, 
 
 [node name="pine tree 24" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=1944515972 instance=ExtResource("7_urn51")]
 transform = Transform3D(0.76085925, 0, -0.64891684, 0, 1, 0, 0.64891684, 0, 0.76085925, 23.26892, 2.9705257, 15.189516)
+
+[node name="pine tree 51" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=1302124527 instance=ExtResource("7_urn51")]
+transform = Transform3D(0.76085925, 0, -0.64891684, 0, 1, 0, 0.64891684, 0, 0.76085925, 10.953809, 0.68881464, 12.070391)
 
 [node name="pine tree 25" parent="NavigationRegion3D/pine trees (ver 3)" unique_id=1852815858 instance=ExtResource("7_urn51")]
 transform = Transform3D(0.5856229, 0, -0.8105836, 0, 1, 0, 0.8105836, 0, 0.5856229, 0.626214, 0, -45.05282)
@@ -191,7 +208,7 @@ transform = Transform3D(0.7925717, 0, -0.8843284, 0, 1.1875217, 0, 0.8843284, 0,
 transform = Transform3D(0.7925717, 0, -0.8843284, 0, 1.1875217, 0, 0.8843284, 0, 0.7925717, 22.873444, 0, -6.354494)
 
 [node name="cabin 1" parent="NavigationRegion3D" unique_id=1069510682 instance=ExtResource("8_4uu2s")]
-transform = Transform3D(-0.41536015, 0, 0.90965706, 0, 1, 0, -0.90965706, 0, -0.41536015, 26.575512, 0.44379473, 2.227809)
+transform = Transform3D(-0.41536015, 0, 0.90965706, 0, 1, 0, -0.90965706, 0, -0.41536015, 23.532349, 0.44379473, 1.3833961)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/cabin 1" unique_id=676478676]
 transform = Transform3D(1.0000021, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000021, 2.956655, 1.7889304, -1.3740082)
@@ -212,7 +229,7 @@ use_collision = true
 size = Vector3(1.848, 1.511, 0.179)
 
 [node name="cabin 2" parent="NavigationRegion3D" unique_id=1587431995 instance=ExtResource("8_4uu2s")]
-transform = Transform3D(0.8545314, 0, 0.5193997, 0, 1, 0, -0.5193997, 0, 0.8545314, 17.937412, 0.44379473, 21.54281)
+transform = Transform3D(0.8545314, 0, 0.5193997, 0, 1, 0, -0.5193997, 0, 0.8545314, 17.704899, 0.44379473, 19.646568)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/cabin 2" unique_id=1245364269]
 transform = Transform3D(1.0000021, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000021, 2.956655, 1.7889304, -1.3740082)
@@ -233,7 +250,7 @@ use_collision = true
 size = Vector3(1.848, 1.511, 0.179)
 
 [node name="cabin 3" parent="NavigationRegion3D" unique_id=528921515 instance=ExtResource("8_4uu2s")]
-transform = Transform3D(0.77578205, 0, -0.63100076, 0, 1, 0, 0.63100076, 0, 0.77578205, -1.4132147, 0.44379473, 18.687456)
+transform = Transform3D(0.77578205, 0, -0.63100076, 0, 1, 0, 0.63100076, 0, 0.77578205, -2.159418, 0.44379473, 18.409063)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/cabin 3" unique_id=1063597431]
 transform = Transform3D(1.0000021, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1.0000021, 2.956655, 1.7889304, -1.3740082)
@@ -257,3 +274,21 @@ size = Vector3(1.848, 1.511, 0.179)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.177889, 0.09651774, 8.392004)
 
 [node name="ground" parent="NavigationRegion3D" unique_id=1576967191 instance=ExtResource("9_d1joi")]
+
+[node name="log" parent="NavigationRegion3D" unique_id=1577857638 instance=ExtResource("10_urn51")]
+transform = Transform3D(0.9539947, 0, -0.29982346, 0, 1, 0, 0.29982346, 0, 0.9539947, 12, 0.2885728, 5)
+
+[node name="log2" parent="NavigationRegion3D" unique_id=2096282375 instance=ExtResource("10_urn51")]
+transform = Transform3D(-0.04269521, 0, -0.99908817, 0, 1, 0, 0.99908817, 0, -0.04269521, 7.572608, 0.2885728, 8.308084)
+
+[node name="fence" parent="NavigationRegion3D" unique_id=556047034 instance=ExtResource("11_4uu2s")]
+transform = Transform3D(6.299302, 0.42525804, 0, -2.9597962, 0.9050721, 0, 0, 0, 0.99999994, 22.621988, 6.634297, -58)
+
+[node name="fence2" parent="NavigationRegion3D" unique_id=1110103407 instance=ExtResource("11_4uu2s")]
+transform = Transform3D(3.549571, -0.48625916, 0, 1.97526, 0.87381464, 0, 0, 0, 0.9999999, 42.744976, 4.8716054, -58)
+
+[node name="fence3" parent="NavigationRegion3D" unique_id=141751340 instance=ExtResource("11_4uu2s")]
+transform = Transform3D(2.371576, -0.002974704, -0.96159774, 0.09365688, 0.9999413, 0, 8.3089695, -0.010422068, 0.27446267, -18.84345, 0.83223724, 27.059177)
+
+[node name="fence4" parent="NavigationRegion3D" unique_id=1301306250 instance=ExtResource("11_4uu2s")]
+transform = Transform3D(-0.064080715, -0.0029747037, -0.99996805, 0.08986756, 0.9999413, -0.0030517478, 8.640598, -0.010422068, -0.0073843, -24.193981, 0.32523346, -20.057924)

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c4vmq2radt8ae"]
+
+[ext_resource type="Texture2D" uid="uid://cp8jx3rv44t7x" path="res://textures/vector_wire_chainlink_fence_pattern-removebg-preview.png" id="1_61cgq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjfah"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_61cgq")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_si0va"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61cgq"]
+size = Vector3(2, 2, 0.171875)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61cgq"]
+albedo_color = Color(0.61745477, 0.61745477, 0.6174547, 1)
+metallic = 0.68
+roughness = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_61cgq"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 4.0
+radial_segments = 8
+rings = 0
+
+[node name="fence" type="Node3D" unique_id=556047034]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1492649015]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yjfah")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_si0va")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1121022639]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1401800503]
+shape = SubResource("BoxShape3D_61cgq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2023128199]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_61cgq")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_61cgq")
