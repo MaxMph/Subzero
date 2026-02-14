@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://s03fyp1krkrd"
+path="res://.godot/imported/snow footsep edited.wav-c19f02abef5d2393d8ac281404984905.sample"
+
+[deps]
+
+source_file="res://audio/snow footsep edited.wav"
+dest_files=["res://.godot/imported/snow footsep edited.wav-c19f02abef5d2393d8ac281404984905.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

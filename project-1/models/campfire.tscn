@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://du1outftvu7q8"]
+
+[ext_resource type="Script" uid="uid://bp6j02yvcxnty" path="res://models/campfire.gd" id="1_mfree"]
+[ext_resource type="Texture2D" uid="uid://cdwbntd47v0j" path="res://textures/smoke2.png" id="1_w2k2t"]
+[ext_resource type="Material" uid="uid://bfsv6i50ud4nf" path="res://textures/wood1.tres" id="2_0e7a1"]
+[ext_resource type="AudioStream" uid="uid://bf2jnb86rtbkw" path="res://audio/soundreality-fire-in-the-night-forest-226199.mp3" id="4_p48th"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fuvy"]
+transparency = 1
+albedo_color = Color(0.91764706, 0.36862746, 0, 0.8039216)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fuvy"]
+material = SubResource("StandardMaterial3D_8fuvy")
+
+[sub_resource type="Curve" id="Curve_w2k2t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24203822, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e7a1"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_w2k2t")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mfree"]
+material = SubResource("StandardMaterial3D_0e7a1")
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_p48th"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.26114652, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_q88j5"]
+offsets = PackedFloat32Array(0, 0.13194445, 1)
+colors = PackedColorArray(17.96545, 7.9703417, 6.6943526, 0.84705883, 16.816082, 3.483652, 0.08978916, 0.8195939, 1, 1, 1, 0.5411765)
+metadata/_snap_count = 16
+
+[sub_resource type="Curve" id="Curve_0e7a1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.26114652, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.58386695), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_mfree"]
+offsets = PackedFloat32Array(0, 0.2048611, 0.4826389, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w2k2t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0e7a1"]
+radius = 6.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0e7a1"]
+size = Vector3(1, 0.58154297, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfree"]
+
+[node name="campfire" type="Node3D" unique_id=991263115]
+script = ExtResource("1_mfree")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=859032211]
+visible = false
+emitting = false
+amount = 12
+mesh = SubResource("BoxMesh_8fuvy")
+particle_flag_rotate_y = true
+direction = Vector3(0, 1, 0)
+spread = 28.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angular_velocity_min = -20.0
+angular_velocity_max = 20.0
+angle_min = -526.8
+angle_max = 333.7
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_w2k2t")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="." unique_id=190534407]
+mesh = SubResource("PlaneMesh_mfree")
+direction = Vector3(0, 1, 0)
+spread = 25.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_p48th")
+color_ramp = SubResource("Gradient_q88j5")
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="." unique_id=2047792043]
+lifetime = 3.0
+explosiveness = 0.05
+randomness = 1.0
+mesh = SubResource("PlaneMesh_mfree")
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+damping_min = 0.1
+damping_max = 0.1
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_0e7a1")
+color_ramp = SubResource("Gradient_mfree")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1493429464]
+transform = Transform3D(-0.04564301, 0.32477385, 0.24801438, -0.274861, 0.12195234, -0.08412771, -0.09010056, -0.53655154, 0.1310014, -0.057108417, 0.1377044, 0.1497053)
+material_override = ExtResource("2_0e7a1")
+mesh = SubResource("CylinderMesh_w2k2t")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1281570102]
+transform = Transform3D(0.030215416, -0.36514345, -0.23282103, -0.29061413, 0.106904306, -0.08894933, 0.10242692, 0.41103306, -0.18369325, 0.44484198, 0.18533236, 0.0075417915)
+material_override = ExtResource("2_0e7a1")
+mesh = SubResource("CylinderMesh_w2k2t")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1265338530]
+transform = Transform3D(0.14342672, 0.29844582, -0.21556824, -0.24856794, 0.2863294, -0.08211694, 0.05824707, 0.48701495, 0.18038037, -0.31606704, 0.1377044, -0.30306023)
+material_override = ExtResource("2_0e7a1")
+mesh = SubResource("CylinderMesh_w2k2t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=11611506]
+transform = Transform3D(0.012099382, 0.6465014, -0.04731895, -0.24896416, -0.00054865587, -0.06480399, -0.063664794, 0.1250121, 0.24442613, 0.039011896, -0.03656771, 0.0013039373)
+material_override = ExtResource("2_0e7a1")
+mesh = SubResource("CylinderMesh_w2k2t")
+
+[node name="warm_area" type="Area3D" parent="." unique_id=1873889961]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="warm_area" unique_id=2066891436]
+shape = SubResource("SphereShape3D_0e7a1")
+
+[node name="burn_area" type="Area3D" parent="." unique_id=589471429]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="burn_area" unique_id=1037416480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20922852, 0)
+shape = SubResource("BoxShape3D_0e7a1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=892240548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67404366, 0)
+light_color = Color(1, 0.7647157, 0.618507, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1929512041]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1214318596]
+shape = SubResource("BoxShape3D_mfree")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=278802594]
+stream = ExtResource("4_p48th")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="body_entered" from="warm_area" to="." method="_on_warm_area_body_entered"]
+[connection signal="body_exited" from="warm_area" to="." method="_on_warm_area_body_exited"]

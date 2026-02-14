@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b85los8pqs363"]
+
+[ext_resource type="Script" uid="uid://ueqbse866sq6" path="res://ui/sound_button.gd" id="1_p6aoh"]
+
+[node name="soundButton" type="Button" unique_id=342253587]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6aoh")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

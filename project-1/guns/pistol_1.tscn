@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://qkb7wd7ldxla" path="res://guns/gun.gd" id="1_2napi"]
 [ext_resource type="PackedScene" uid="uid://b435vk07a87nx" path="res://guns/ironsights_1.tscn" id="2_bpysr"]
-[ext_resource type="PackedScene" uid="uid://xg2yaaxujmo" path="res://guns/pistol_barrel_mag.tscn" id="2_cxyyq"]
+[ext_resource type="PackedScene" uid="uid://bo2aiyu6avn4m" path="res://guns/pistol_mag_1.tscn" id="2_d6r2q"]
 [ext_resource type="PackedScene" uid="uid://dwallvckox45x" path="res://guns/muzzle_1.tscn" id="2_lhf1u"]
 [ext_resource type="Texture2D" uid="uid://beku401xdgrrc" path="res://textures/172_concrete wall texture-seamless.jpg" id="5_d6r2q"]
 [ext_resource type="PackedScene" uid="uid://c61y7qmmvm7cb" path="res://guns/underbarrel_laser.tscn" id="5_yhgb5"]
 [ext_resource type="AudioStream" uid="uid://b0yywxk6jpgel" path="res://audio/9mm-pistol-shot-6349.mp3" id="6_oyt12"]
+[ext_resource type="AudioStream" uid="uid://cwjtpxswna26a" path="res://audio/reload/gun-reload-3-395174.mp3" id="8_l5nqj"]
+[ext_resource type="AudioStream" uid="uid://yqewudyxghcs" path="res://audio/reload/mag-remove-92075.mp3" id="9_jsk8i"]
+[ext_resource type="AudioStream" uid="uid://c8lm2o3pwhm3d" path="res://audio/reload/shell-load-87813.mp3" id="10_5fdsk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2napi"]
 
@@ -259,13 +262,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2v5tp")
 
-[node name="pistol 1" type="Node3D" unique_id=1328500472 groups=["gun"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_l5nqj"]
+size = Vector3(0.1, 0.38, 0.6366272)
+
+[node name="pistol 1" type="Node3D" unique_id=1328500472 node_paths=PackedStringArray("col_shape") groups=["gun"]]
 script = ExtResource("1_2napi")
-mag = ExtResource("2_cxyyq")
-sight = ExtResource("2_bpysr")
-muzzle = ExtResource("2_lhf1u")
+mag_scene = ExtResource("2_d6r2q")
+sight_scene = ExtResource("2_bpysr")
+muzzle_scene = ExtResource("2_lhf1u")
 vrecoil = 0.1
 hrecoil = 0.025
+col_shape = NodePath("CollisionShape3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1201596880]
 transform = Transform3D(0.10604374, 0, 0, 0, 0.1497559, 0, 0, 0, 0.5527746, 0, 0.018083155, -0.24733941)
@@ -334,3 +341,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01572454, -0.3172531)
 stream = ExtResource("6_oyt12")
 volume_db = -5.962
 max_polyphony = 8
+
+[node name="Control" type="Control" parent="." unique_id=585112820]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=603847715]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -46.0
+offset_right = 20.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "6/6"
+
+[node name="reload" type="Node" parent="." unique_id=1342768631]
+
+[node name="mag_in" type="AudioStreamPlayer" parent="reload" unique_id=172341943]
+stream = ExtResource("8_l5nqj")
+pitch_scale = 0.86
+
+[node name="mag out" type="AudioStreamPlayer" parent="reload" unique_id=1674757876]
+stream = ExtResource("9_jsk8i")
+volume_db = 0.588
+pitch_scale = 0.98
+
+[node name="fill_mag" type="AudioStreamPlayer" parent="reload" unique_id=162552410]
+stream = ExtResource("10_5fdsk")
+volume_db = -8.0
+pitch_scale = 1.1
+max_polyphony = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=267735381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06678282, -0.19676208)
+shape = SubResource("BoxShape3D_l5nqj")

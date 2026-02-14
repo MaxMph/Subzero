@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1hjn10wof1p8"]
+
+[ext_resource type="Script" uid="uid://c504y40negf1a" path="res://audio/ambient/abmient_player.gd" id="1_3gu77"]
+[ext_resource type="AudioStream" uid="uid://eod77uibysfy" path="res://audio/ambient/shut_up_ghost-smooth-cold-wind-looped-135538.mp3" id="2_yjhff"]
+[ext_resource type="AudioStream" uid="uid://x66b2y4rjgyd" path="res://audio/ambient/freesound_community-ice-storm-wind-bright-strong-trees-180415-51283.mp3" id="3_m88xc"]
+[ext_resource type="AudioStream" uid="uid://cd5hev0hukk8h" path="res://audio/ambient/freesound_community-wind-bright-trees-med-white-noise-slow-variability-saint-john-190928-58179.mp3" id="4_ap3o7"]
+[ext_resource type="AudioStream" uid="uid://n8utij2r0m50" path="res://audio/ambient/tanweraman-blizzard-445020.mp3" id="5_cra6g"]
+
+[node name="abmient_player" type="Node" unique_id=1049513297]
+process_mode = 3
+script = ExtResource("1_3gu77")
+
+[node name="base_neutral" type="AudioStreamPlayer" parent="." unique_id=297930215]
+stream = ExtResource("2_yjhff")
+volume_db = -10.0
+autoplay = true
+
+[node name="trees_neutral" type="AudioStreamPlayer" parent="." unique_id=315474345]
+stream = ExtResource("3_m88xc")
+volume_db = -10.0
+autoplay = true
+
+[node name="trees_strong" type="AudioStreamPlayer" parent="." unique_id=711639271]
+stream = ExtResource("4_ap3o7")
+
+[node name="clearing_neutral" type="AudioStreamPlayer" parent="." unique_id=922224837]
+stream = ExtResource("5_cra6g")

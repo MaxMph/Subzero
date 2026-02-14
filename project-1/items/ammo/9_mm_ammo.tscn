@@ -1,0 +1,66 @@
+[gd_scene format=4 uid="uid://c5dni1pnf7rxg"]
+
+[ext_resource type="Script" uid="uid://dteqfkmcgq7ii" path="res://items/item.gd" id="1_xrs0n"]
+[ext_resource type="Script" uid="uid://bt5pfqud1y7xp" path="res://items/item_res.gd" id="2_7ocbu"]
+[ext_resource type="Texture2D" uid="uid://cfp46m0l6jmwq" path="res://models/9mm ammo_9mm box (128).jpg" id="2_rxixv"]
+
+[sub_resource type="Resource" id="Resource_jnw23"]
+script = ExtResource("2_7ocbu")
+item_name = "9mm"
+item_scene = "res://items/ammo/9_mm_ammo.tscn"
+metadata/_custom_type_script = "uid://bt5pfqud1y7xp"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c0kut"]
+size = Vector3(0.645, 0.135, 0.35)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvwg4"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("2_rxixv")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kjco5"]
+_surfaces = [{
+"aabb": AABB(-0.32, -0.06645849, -0.17731714, 0.64, 0.13291699, 0.35463428),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//wAAAAD///////8AAAAA///+/wAA//8AAP//AAD/////AAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uo2fu"]
+resource_name = "9mm ammo_Cube"
+_surfaces = [{
+"aabb": AABB(-0.32, -0.06645849, -0.17731714, 0.64, 0.13291699, 0.35463428),
+"attribute_data": PackedByteArray("pCSePuT71rmkJNa55PuePsIiXz4bBfS6GwVfPsIi9Lp1+X2aHCO2ZHX5tmQcI32aXyP/uCr9Dz9fIw8/Kv3/uGAkHJqK/uJlYCTiZYr+HJrCIvS6GwVfPhsF9LrCIl8+"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_lvwg4"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD//wAA/7//////////vwAA///+//+//////wAA/7///wAAAABU1f///////1TV/////wAAVNX//wAA//9U1f//AAD//wCAAAD///7/AID///////8AgAAAAAD+/wCAAAAAAP7//z///wAAAAD/PwAAAAAAAP8///8AAP///z8AAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAAAAAAAAAD+/6oqAAD//wAAqioAAP///v+qKgAAAAAAAKoq////f////3////9/////f6qqVFWqqlRVqqpUVaqqVFX/f////3////9/////f///AAD/fwAA/38AAP9/AAD/f////3////9/////f////39UVaqqVFWqqlRVqqpUVaqq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kjco5")
+
+[node name="9mm ammo box" type="RigidBody3D" unique_id=2004308704]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_xrs0n")
+item_info = SubResource("Resource_jnw23")
+use_rand = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1594972178]
+shape = SubResource("BoxShape3D_c0kut")
+
+[node name="Cube2" type="MeshInstance3D" parent="." unique_id=1816778517]
+mesh = SubResource("ArrayMesh_uo2fu")
+skeleton = NodePath("")

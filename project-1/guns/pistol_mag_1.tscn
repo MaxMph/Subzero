@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bo2aiyu6avn4m"]
 
+[ext_resource type="Script" uid="uid://c7dw53achs5xb" path="res://guns/mag.gd" id="1_o21f6"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_yag1i"]
 
 [node name="pistol mag 1" type="Node3D" unique_id=675574802]
+script = ExtResource("1_o21f6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1452195417]
 transform = Transform3D(0.027297558, 0, 0, 0, 0.28358567, 0, 0, 0, 0.076522835, 0, -0.13938653, 0)

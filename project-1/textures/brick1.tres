@@ -20,4 +20,5 @@ albedo_color = Color(0.83889705, 0.83889705, 0.8388969, 1)
 albedo_texture = ExtResource("1_i82s6")
 uv1_scale = Vector3(0.15, 0.15, 0.15)
 uv1_triplanar = true
+uv1_world_triplanar = true
 texture_filter = 0

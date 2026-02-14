@@ -16,9 +16,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("enter"):
 		print_line("user@FieldPDA:~$ " + %cmd_line.text)
 		send_command(%cmd_line.text)
@@ -31,6 +28,16 @@ func _input(event: InputEvent) -> void:
 		#%cmd_line.select_all()
 		#%cmd_line.grab_click_focus()
 		#%cmd_line
+	
+	if Input.is_action_just_pressed("inv"):
+		if visible:
+			close()
+			#$inv.hide()
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		elif Global.in_menu == false:
+			#$inv.show()
+			open()
+			#Input.mouse_mode = Input.mouse_mode
 
 func _on_remove_item_pressed() -> void:
 	if items.size() > 0:
@@ -58,16 +65,25 @@ func print_items():
 
 func print_line(text):
 	%terminal_text.text += text + "\n\n"
+	
 
 func send_command(text: String):
+	text = text.strip_edges().to_lower()
 	
 	#if text.strip_edges().is_valid_int():
+	
+	var selected = -1
+	if text.split(" ").size() >= 2:
+		if text.split(" ").get(1).is_valid_int():
+			selected = text.split(" ").get(1).to_int()
+		text = text.split(" ").get(0)
+	
 		
-	if focused_item >= 0 and focused_item != null:
-		match text.to_lower().strip_edges():
-			"remove":
-				remove_item(focused_item - 1)
-				focused_item = null
+	#if focused_item >= 0 and focused_item != null:
+		#match text.to_lower().strip_edges():
+			#"remove":
+				#remove_item(focused_item - 1)
+				#focused_item = null
 	
 	match text.to_lower().strip_edges():
 		"inv":
@@ -76,12 +92,23 @@ func send_command(text: String):
 			get_tree().quit()
 		"quit":
 			get_tree().quit()
-		"add item", "add_item":
+		"additem", "add_item":
 			_on_add_item_pressed()
 		"remove":
-			pass
+			remove_item(selected - 1)
+		"use":
+			use_item(selected - 1)
+		"help":
+			help()
 		_:
 			print_line("--invalid command--")
+		
+	
+	#for i in text.split(" "):
+		#if i
+	
+		
+		
 	
 	#if text == "inv":
 		#print_items()
@@ -94,13 +121,22 @@ func send_command(text: String):
 	#
 	#if text = 
 
+#func check_commands():
+	#
+
 func open():
 	show()
 	%cmd_line.grab_focus()
 	%cmd_line.edit(true)
+	Global.in_menu = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().paused = true
  
 func close():
 	hide()
+	Global.in_menu = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_tree().paused = false
 
 func add_item(item: item_res):
 	if item == null:
@@ -109,7 +145,58 @@ func add_item(item: item_res):
 	print("picked up " + item.item_name)
 	print_line("Picked up " + item.item_name)
 
-func remove_item(item_index: int):
-	items.remove_at(item_index)
-	print("dropped " + items[item_index].item_name)
-	print_line("dropped " + items[item_index].item_name)
+func remove_item(index: int):
+	if selected_check(index) == true:
+		print("dropped " + items[index].item_name)
+		create_scene_item(index)
+		print_line("dropped " + items[index].item_name)
+		items.remove_at(index)
+
+func create_scene_item(index):
+	if FileAccess.file_exists(items[index].item_scene):
+		var itm = load(items[index].item_scene).instantiate()
+		#itm.global_position = (%interact_cast.global_transform.origin + %interact_cast.get_collision_point())
+		#itm.global_position = %interact_cast.get_collision_point()
+		itm.global_position = %gun_holder.global_position
+		get_tree().root.add_child(itm)
+
+func use_item(index):
+	if selected_check(index) == true:
+		
+		if items[index].consumable == true:
+			print_line(items[index].item_name + " consumed")
+			if items[index].consume_effects["hunger"] != 0:
+				get_parent().hunger += items[index].consume_effects["hunger"]
+				print_line("Hunger = " + str(clampi(get_parent().hunger, 0, 100)))
+			if items[index].consume_effects["blood"] != 0:
+				get_parent().blood += items[index].consume_effects["blood"]
+				print_line("Blood = " + str(get_parent().hunger))
+			#for i in 
+				#if items[index].consume_effects
+			
+			#if items[index].consumable == true:
+				#get_parent().blood += items[index].consume_effects["blood"]
+				#get_parent().hunger += items[index].consume_effects["hunger"]
+
+func selected_check(index):
+	if index == -1:
+		print_line("no item selected")
+		return false
+	elif index >= items.size() or index < -1:
+		print_line("invaled item index")
+		return false
+	else:
+		return true
+
+func help():
+	print_line("")
+	print_line("keybinds:")
+	print_line("wasd -> move")
+	print_line("tab -> open terminal")
+	#print_line("")
+	
+	print_line("")
+	print_line("Commands:")
+	print_line("[inv] -> shows items in inventory")
+	print_line("[blabla] -> does nothing")
+	

@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://dwbucwofqmkko"]
+
+[ext_resource type="Script" uid="uid://bf5ducnwb5rij" path="res://ui/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://ualn0vcyqkvg" path="res://ui/DSC03765-removebg-preview.png" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dxd1mf5e3se2q" path="res://textures/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg" id="2_8uxxo"]
+[ext_resource type="Texture2D" uid="uid://bdx1prgm1g6jn" path="res://textures/snow_grass_128.jpg" id="3_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dmu2lxkndrmvk" path="res://textures/Screenshot from 2026-01-04 21-25-03.png" id="3_jix8l"]
+[ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="7_p8ri8"]
+[ext_resource type="PackedScene" uid="uid://c5dni1pnf7rxg" path="res://items/ammo/9_mm_ammo.tscn" id="8_arv2f"]
+[ext_resource type="PackedScene" uid="uid://1x3ffgr8fx5n" path="res://items/apple.tscn" id="8_ubpvv"]
+
+[sub_resource type="Animation" id="Animation_7vrkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_fu7sn"]
+resource_name = "intro"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.43333334, 0.5379293, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 480), Vector2(0, -32), Vector2(0, 26), Vector2(0, -13), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jix8l"]
+_data = {
+&"RESET": SubResource("Animation_7vrkn"),
+&"intro": SubResource("Animation_fu7sn")
+}
+
+[sub_resource type="Animation" id="Animation_jix8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_glbon"]
+resource_name = "shake"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099515125, 0.2, 0.29734522),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00698131700797692, -0.00698131700797692, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlkkf"]
+_data = {
+&"RESET": SubResource("Animation_jix8l"),
+&"shake": SubResource("Animation_glbon")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8ri8"]
+albedo_texture = ExtResource("2_8uxxo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubpvv"]
+albedo_texture = ExtResource("2_8uxxo")
+uv1_scale = Vector3(0.08, 0.08, 0.08)
+uv1_offset = Vector3(0.555, 0, -0.33)
+uv1_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ei257"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_p8ri8"]
+sky_material = SubResource("ProceduralSkyMaterial_ei257")
+
+[sub_resource type="Environment" id="Environment_ubpvv"]
+background_energy_multiplier = 0.3
+sky = SubResource("Sky_p8ri8")
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.24805847, 0.27228287, 0.30997485, 1)
+
+[sub_resource type="Gradient" id="Gradient_ei257"]
+offsets = PackedFloat32Array(0, 0.66780823)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p8ri8"]
+gradient = SubResource("Gradient_ei257")
+width = 400
+height = 400
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="main menu" type="Control" unique_id=913384409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Control" type="Control" parent="." unique_id=1590417376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 480.0
+offset_bottom = 479.99695
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=1952677437]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -20.0
+offset_right = 124.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer" unique_id=380098362]
+layout_mode = 2
+
+[node name="startbutton" type="Button" parent="Control/PanelContainer/HBoxContainer" unique_id=1533694299]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Start"
+
+[node name="quitbutton" type="Button" parent="Control/PanelContainer/HBoxContainer" unique_id=729938078]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Quit"
+
+[node name="optionsbutton" type="Button" parent="Control/PanelContainer/HBoxContainer" unique_id=821366267]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "options"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=260681800]
+libraries/ = SubResource("AnimationLibrary_jix8l")
+autoplay = &"intro"
+
+[node name="hand_limit" type="Control" parent="." unique_id=641818184]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -1.0
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Node2D" type="Node2D" parent="hand_limit" unique_id=1883087894]
+
+[node name="hand" type="Sprite2D" parent="." unique_id=816755428]
+modulate = Color(0.5520253, 0.5520253, 0.5520253, 1)
+texture = ExtResource("2_7vrkn")
+centered = false
+offset = Vector2(-330, -87)
+
+[node name="Node2D" type="Node2D" parent="hand" unique_id=1111064492]
+position = Vector2(327, 281)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hand" unique_id=142144792]
+libraries/ = SubResource("AnimationLibrary_nlkkf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=386189716]
+visible = false
+modulate = Color(0.2733039, 0.29287204, 0.42209187, 1)
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 0
+offset_left = -714.0
+offset_top = 443.0
+offset_right = 1286.0
+offset_bottom = 699.0
+texture = ExtResource("3_jix8l")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2057810712]
+visible = false
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 0
+offset_left = -747.0
+offset_top = -223.0
+offset_right = 1253.0
+offset_bottom = 33.0
+texture = ExtResource("3_fu7sn")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="NathanDumlaoJ2gEgTpmOaUnsplash" type="Sprite2D" parent="." unique_id=2101389328]
+visible = false
+z_index = -3
+position = Vector2(308, 237)
+scale = Vector2(1.9528793, 1.9528793)
+texture = ExtResource("2_8uxxo")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=275229000]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=279502219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42541194, 0)
+layers = 9
+material_override = SubResource("StandardMaterial3D_p8ri8")
+use_collision = true
+size = Vector3(5, 1, 2.5820313)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=171993977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622334, -2.4823368, 1.3365364)
+material_override = SubResource("StandardMaterial3D_ubpvv")
+size = Vector3(19.144958, 1, 16.45166)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1526172874]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.0874283, -9.124439e-08)
+fov = 45.234604
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D" unique_id=800686411]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, -4.371139e-08)
+light_color = Color(0.98256487, 0.84902215, 0.62948567, 1)
+light_energy = 4.024
+spot_angle = 28.17297
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=562710817]
+environment = SubResource("Environment_ubpvv")
+
+[node name="pistol 1" parent="Node3D" unique_id=1328500472 instance=ExtResource("7_p8ri8")]
+transform = Transform3D(-4.371139e-08, -0.83528, 0.5498249, 1, -3.6511246e-08, 2.4033612e-08, 0, 0.5498249, 0.83528, -1.1742939, 0.14143318, 0.8008126)
+
+[node name="apple" parent="Node3D" unique_id=2004308704 instance=ExtResource("8_ubpvv")]
+transform = Transform3D(-4.371139e-08, -0.83528, 0.5498249, 1, -3.6511246e-08, 2.4033612e-08, 0, 0.5498249, 0.83528, -1.099877, 0.5748116, -0.44622797)
+
+[node name="apple2" parent="Node3D" unique_id=484863589 instance=ExtResource("8_ubpvv")]
+transform = Transform3D(0.83227444, -0.07079512, 0.54982495, 0.08475613, 0.99640185, 0, -0.5478465, 0.046600968, 0.8352801, -0.7440059, 0.5596477, -0.7405928)
+
+[node name="9mm ammo box" parent="Node3D" unique_id=18785218 instance=ExtResource("8_arv2f")]
+transform = Transform3D(0.9381551, 0, 0.3462153, 0, 1, 0, -0.3462153, 0, 0.9381551, 1.4642282, 0.31110173, 0.11093187)
+
+[node name="9mm ammo box2" parent="Node3D" unique_id=793362481 instance=ExtResource("8_arv2f")]
+transform = Transform3D(0.8204813, 0, -0.5716734, 0, 1, 0, 0.5716734, 0, 0.8204813, 1.348346, 0.31110173, -0.4480888)
+
+[node name="Control2" type="Control" parent="." unique_id=1542942477]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="Control2" unique_id=1622754773]
+texture = SubResource("GradientTexture2D_p8ri8")
+
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/optionsbutton" to="." method="_on_optionsbutton_pressed"]

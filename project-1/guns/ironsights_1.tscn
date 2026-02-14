@@ -6,6 +6,7 @@
 
 [node name="ironsights_1" type="Node3D" unique_id=495727474]
 script = ExtResource("1_f45c2")
+fov_change = 6
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1548843586]
 transform = Transform3D(0.007752231, 0, 0, 0, 0.017256014, 0, 0, 0, 0.03775645, 0, 0.01215357, 0)

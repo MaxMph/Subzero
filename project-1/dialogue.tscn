@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bvdonsn75afmf"]
+
+[ext_resource type="Script" uid="uid://ds3ohjha6440i" path="res://dialogue.gd" id="1_kp46k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kp46k"]
+font_size = 8
+
+[node name="dialogue" type="Control" unique_id=1127584275]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kp46k")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1028876302]
+custom_minimum_size = Vector2(400, 20)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -42.0
+offset_right = 200.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=854290305]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=240018209]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=604233779]
+layout_mode = 2
+
+[node name="dialogue_text" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=2076437489]
+unique_name_in_owner = true
+layout_mode = 2
+text = "text here"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1032713905]
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1004986969]
+layout_mode = 2
+text = "[enter]"
+label_settings = SubResource("LabelSettings_kp46k")
+
+[node name="page_numbers" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1068475396]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_kp46k")

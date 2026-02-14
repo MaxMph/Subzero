@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cv1mfrai4231e" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://c7yfbehdv1yd4" path="res://guns/gun_holder.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://ckm28gd43u7x0" path="res://guns/rg_holder.tscn" id="2_nvl01"]
 [ext_resource type="PackedScene" uid="uid://bt6lgjqy56hyl" path="res://guns/pistol_1.tscn" id="2_onrkg"]
 [ext_resource type="Shader" uid="uid://etyuvl55cvne" path="res://vignette_blur.gdshader" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://cnw2wgl8calqv" path="res://ui/inv.tscn" id="5_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dx3ytddpq0uq0" path="res://textures/skin2.png" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bn2q55hclc1x8" path="res://ui/hunger_sprite.png" id="6_dw050"]
 [ext_resource type="Script" uid="uid://d4dgioc5ark50" path="res://ui/pause_menu.gd" id="7_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://b4xyct5s5j6h8" path="res://ui/heat_sprite.png" id="7_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://dmjwxc0upqet2" path="res://ui/blood_sprite.png" id="8_nvl01"]
+[ext_resource type="AudioStream" uid="uid://s03fyp1krkrd" path="res://audio/snow footsep edited.wav" id="12_ivps1"]
+[ext_resource type="AudioStream" uid="uid://bv5hbppq7jg6y" path="res://audio/freesound_community-heavy-breathing-14431.wav" id="13_urp6f"]
+[ext_resource type="PackedScene" uid="uid://bvdonsn75afmf" path="res://dialogue.tscn" id="14_bwjto"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
 albedo_color = Color(0.93432236, 0.8577775, 0.803191, 1)
@@ -172,7 +179,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5785124, 1), 0.0, 0.0, 0, 0, V
 point_count = 3
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
-height = 2.7495117
+height = 3.0291748
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jxqw"]
 font_size = 9
@@ -192,6 +199,7 @@ collision_mask = 5
 script = ExtResource("1_4flbx")
 head = NodePath("head")
 cam = NodePath("head/cam_holder/Camera3D")
+rg_holder = ExtResource("2_nvl01")
 
 [node name="head" type="Node3D" parent="." unique_id=1134921601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -650,7 +658,7 @@ settings/1/joints/2/bone = 21
 settings/1/joints/2/twist_amount = 0.77528095
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840878810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37475586, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5145874, 0)
 shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="Control" type="Control" parent="." unique_id=1465272637]
@@ -759,13 +767,43 @@ offset_bottom = -6.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="hungerbar" type="ProgressBar" parent="Control/HBoxContainer" unique_id=89553211]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=310154434]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer" unique_id=457811440]
+layout_mode = 2
+texture = ExtResource("6_dw050")
+
+[node name="hungerbar" type="ProgressBar" parent="Control/HBoxContainer/VBoxContainer" unique_id=89553211]
 custom_minimum_size = Vector2(10, 180)
 layout_mode = 2
 fill_mode = 3
 show_percentage = false
 
-[node name="warmthbar" type="ProgressBar" parent="Control/HBoxContainer" unique_id=1127311832]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=1827461865]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer2" unique_id=448176491]
+layout_mode = 2
+texture = ExtResource("7_n7ghd")
+
+[node name="warmthbar" type="ProgressBar" parent="Control/HBoxContainer/VBoxContainer2" unique_id=1127311832]
+custom_minimum_size = Vector2(10, 180)
+layout_mode = 2
+fill_mode = 3
+show_percentage = false
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=990591930]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer3" unique_id=1073323171]
+layout_mode = 2
+texture = ExtResource("8_nvl01")
+
+[node name="bloodbar" type="ProgressBar" parent="Control/HBoxContainer/VBoxContainer3" unique_id=1553685634]
 custom_minimum_size = Vector2(10, 180)
 layout_mode = 2
 fill_mode = 3
@@ -774,10 +812,12 @@ show_percentage = false
 [node name="gun_follow" type="Marker3D" parent="." unique_id=2126268839]
 
 [node name="inv" parent="." unique_id=76155194 instance=ExtResource("5_2hs0m")]
+process_mode = 3
 visible = false
 
 [node name="pause menu" type="Control" parent="." unique_id=1951612803]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -879,6 +919,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.3019608)
+
+[node name="walking" type="AudioStreamPlayer" parent="." unique_id=1850482096]
+stream = ExtResource("12_ivps1")
+volume_db = -12.0
+pitch_scale = 0.9
+max_polyphony = 2
+
+[node name="breathing" type="AudioStreamPlayer" parent="." unique_id=1317404575]
+stream = ExtResource("13_urp6f")
+autoplay = true
+
+[node name="dialogue" parent="." unique_id=1127584275 instance=ExtResource("14_bwjto")]
+visible = false
 
 [connection signal="value_changed" from="pause menu/VBoxContainer/sense_panel/sense/sense_slider" to="pause menu" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="pause menu/VBoxContainer/volume/sense" to="pause menu" method="_on_h_slider_value_changed"]

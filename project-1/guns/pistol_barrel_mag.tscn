@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://xg2yaaxujmo"]
 
 [ext_resource type="PackedScene" uid="uid://bo2aiyu6avn4m" path="res://guns/pistol_mag_1.tscn" id="1_xcebf"]
+[ext_resource type="Script" uid="uid://c7dw53achs5xb" path="res://guns/mag.gd" id="2_yl37o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_yag1i"]
 
 [node name="pistol barrel mag" unique_id=1040187254 instance=ExtResource("1_xcebf")]
+script = ExtResource("2_yl37o")
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=1452195417]
 transform = Transform3D(0.033657007, 0, 0, 0, 0.25426835, 0, 0, 0, 0.06377088, 0, -0.123831585, 0)

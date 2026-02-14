@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxircj17aytlr"]
+
+[ext_resource type="Texture2D" uid="uid://cwm0bjt3oncjf" path="res://textures/131_old wall brick PBR texture-seamless.jpg" id="1_qhcty"]
+
+[resource]
+albedo_texture = ExtResource("1_qhcty")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true

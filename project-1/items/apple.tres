@@ -5,6 +5,12 @@
 [resource]
 script = ExtResource("1_pv0u0")
 item_name = "Apple"
+item_scene = "res://items/apple.tscn"
 weight = 0.25
 value = 8
+consumable = true
+consume_effects = {
+"blood": 0,
+"hunger": 15
+}
 metadata/_custom_type_script = "uid://bt5pfqud1y7xp"
