@@ -4,9 +4,10 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
-	print($Armature/Cube.skin)
+	#print($Armature/Cube.skin)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if $Armature/Skeleton3D/PhysicalBoneSimulator3D/PhysicalBone3D4/StaticBody3D == null:
+		queue_free()

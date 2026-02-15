@@ -193,13 +193,14 @@ shader_parameter/blur_outer = 0.66000003135
 
 [sub_resource type="LabelSettings" id="LabelSettings_dw050"]
 
-[node name="player" type="CharacterBody3D" unique_id=1384160024 node_paths=PackedStringArray("head", "cam") groups=["player"]]
+[node name="player" type="CharacterBody3D" unique_id=1384160024 node_paths=PackedStringArray("head", "cam", "dialogue") groups=["player"]]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_4flbx")
 head = NodePath("head")
 cam = NodePath("head/cam_holder/Camera3D")
 rg_holder = ExtResource("2_nvl01")
+dialogue = NodePath("dialogue")
 
 [node name="head" type="Node3D" parent="." unique_id=1134921601]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -211,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="interact_cast" type="RayCast3D" parent="head/cam_holder/Camera3D" unique_id=1740638577]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
-collision_mask = 9
+collision_mask = 137
 
 [node name="gun_holder" type="Node3D" parent="head/cam_holder/Camera3D" unique_id=2141059182]
 unique_name_in_owner = true
@@ -552,34 +553,24 @@ settings/0/end_bone_name = "forearm.l"
 settings/0/end_bone = 2
 settings/0/extend_end_bone = false
 settings/0/joint_count = 2
-settings/0/joints/0/bone = 1
-settings/0/joints/1/bone = 2
 settings/1/root_bone_name = "bicep.l"
 settings/1/root_bone = 1
 settings/1/end_bone_name = "palm.l"
 settings/1/end_bone = 3
 settings/1/extend_end_bone = false
 settings/1/joint_count = 3
-settings/1/joints/0/bone = 1
-settings/1/joints/1/bone = 2
-settings/1/joints/2/bone = 3
 settings/2/root_bone_name = "bicep.r"
 settings/2/root_bone = 19
 settings/2/end_bone_name = "forearm.r"
 settings/2/end_bone = 20
 settings/2/extend_end_bone = false
 settings/2/joint_count = 2
-settings/2/joints/0/bone = 19
-settings/2/joints/1/bone = 20
 settings/3/root_bone_name = "bicep.r"
 settings/3/root_bone = 19
 settings/3/end_bone_name = "palm.r"
 settings/3/end_bone = 21
 settings/3/extend_end_bone = false
 settings/3/joint_count = 3
-settings/3/joints/0/bone = 19
-settings/3/joints/1/bone = 20
-settings/3/joints/2/bone = 21
 settings/0/joints/0/rotation_axis = 3
 settings/0/joints/0/limitation = null
 settings/0/joints/1/rotation_axis = 3
@@ -634,11 +625,8 @@ settings/0/twist_from_rest = true
 settings/0/disperse_mode = 2
 settings/0/damping_curve = SubResource("Curve_i3pqv")
 settings/0/joint_count = 3
-settings/0/joints/0/bone = 1
 settings/0/joints/0/twist_amount = 1.0
-settings/0/joints/1/bone = 2
 settings/0/joints/1/twist_amount = 1.0
-settings/0/joints/2/bone = 3
 settings/0/joints/2/twist_amount = 0.77528095
 settings/1/root_bone_name = "bicep.r"
 settings/1/root_bone = 19
@@ -650,11 +638,8 @@ settings/1/twist_from_rest = true
 settings/1/disperse_mode = 2
 settings/1/damping_curve = SubResource("Curve_i3pqv")
 settings/1/joint_count = 3
-settings/1/joints/0/bone = 19
 settings/1/joints/0/twist_amount = 1.0
-settings/1/joints/1/bone = 20
 settings/1/joints/1/twist_amount = 1.0
-settings/1/joints/2/bone = 21
 settings/1/joints/2/twist_amount = 0.77528095
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840878810]

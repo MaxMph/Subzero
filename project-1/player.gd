@@ -1,7 +1,9 @@
 extends CharacterBody3D
 
 
-var speed = 4.6
+var base_speed
+var speed = 5.6
+var sprint_mult = 1.6
 var acc = 20
 var fric = 20
 
@@ -11,7 +13,7 @@ var warmth = 100
 var chill = 1.0
 var blood = 100
 
-var jump_vel = 6
+var jump_vel = 6.8
 
 @export var head: Node3D
 @export var cam: Camera3D
@@ -33,9 +35,12 @@ var fov_scopespeed = 38
 var step_vol
 var step_pitch
 
+@export var dialogue: Node
+
 #@onready var hand_to_gun_aim: AimModifier3D = $head/cam_holder/Camera3D/arms/hand_to_gun_l
 
 func _ready() -> void:
+	base_speed = speed
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	root_gun_pos = $head/cam_holder/Camera3D/gun_holder.position
 	$head/cam_holder/Camera3D/root_gun_pos.global_position = $head/cam_holder/Camera3D/gun_holder.global_position
@@ -158,12 +163,17 @@ func _physics_process(delta: float) -> void:
 
 	
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += Vector3(0, -14, 0) * delta
 	
 	
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = jump_vel
+
+	if Input.is_action_pressed("sprint"):
+		speed = base_speed * sprint_mult
+	else:
+		speed = base_speed
 
 	%int_indicator.hide()
 	if %interact_cast.is_colliding():

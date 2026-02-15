@@ -44,13 +44,13 @@ func _process(delta: float) -> void:
 		##light_dark = 1
 	
 	
-	#cur_time += delta * light_dark
-	#if cur_time > day_length or cur_time < 0:
-		#light_dark *= -1
-#
-	#var t = cur_time / day_length
-#
+	cur_time += delta * light_dark
+	if cur_time > day_length or cur_time < 0:
+		light_dark *= -1
+
+	var t = cur_time / day_length
+
 	#$"../DirectionalLight3D".rotation_degrees.x = t * 360.0 - 90.0
-	#$"../DirectionalLight3D".light_energy = t
-	#$"../WorldEnvironment".environment.background_energy_multiplier = t
+	$"../DirectionalLight3D".light_energy = t
+	$"../WorldEnvironment".environment.background_energy_multiplier = t
 	

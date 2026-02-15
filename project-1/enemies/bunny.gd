@@ -16,6 +16,7 @@ var original_pos
 @export var idle_time_max = 6.0
 
 @export var blood_splatter = preload("res://enemies/blood_splater.tscn")
+@export var dead_replacement = preload("res://models/characters/dead_bunny try 2.tscn")
 
 enum states {IDLE, TRAVELING, jumping, RUNNING, DEAD}
 var state = states.IDLE
@@ -53,6 +54,9 @@ func _physics_process(delta: float) -> void:
 		states.DEAD:
 			dead()
 
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
 	move_and_slide()
 
 func place_target():
@@ -86,10 +90,13 @@ func idle():
 	$AnimationPlayer.play("graze")
 
 func travel(delta):
-	if abs((global_position - target).length()) < target_allowence:
+	var target_dist = abs((global_position - target))
+	target_dist.y = 0
+	if target_dist.length() < target_allowence:
 		state = states.IDLE
 	else:
 		velocity = global_position.direction_to(target) * speed * delta
+		velocity
 		
 		$RayCast3D.target_position.z = -1 * abs(position.distance_to(target))
 		$RayCast3D.look_at(target)
@@ -97,6 +104,8 @@ func travel(delta):
 			place_target()
 		
 		$AnimationPlayer.play("walk")
+	
+
 
 func run(delta):
 	if $run_timer.is_stopped():
@@ -115,15 +124,22 @@ func run(delta):
 
 func dead():
 	if is_dead == false:
-		velocity.x = 0
-		velocity.z = 0
-		velocity.y = 8
-		$Armature/Skeleton3D/PhysicalBoneSimulator3D.active = true
-		$Armature/Skeleton3D/PhysicalBoneSimulator3D.influence = 0.1
-		$AnimationPlayer.stop()
+		var dead = dead_replacement.instantiate()
+		dead.transform = global_transform
+		get_tree().root.add_child(dead)
+		queue_free()
+		
+		
+		#velocity.x = 0
+		#velocity.z = 0
+		#velocity.y = 8
+		#$Armature/Skeleton3D/PhysicalBoneSimulator3D.active = true
+		#$Armature/Skeleton3D/PhysicalBoneSimulator3D.influence = 0.1
+		#$AnimationPlayer.stop()
+		##$CollisionShape3D.disabled = true
+		#is_dead = true
+		#$Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 		#$CollisionShape3D.disabled = true
-		is_dead = true
-		$Armature/Skeleton3D/PhysicalBoneSimulator3D.physical_bones_start_simulation()
 
 func _on_idle_timer_timeout() -> void:
 	if state == states.IDLE:

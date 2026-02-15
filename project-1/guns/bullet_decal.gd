@@ -9,6 +9,14 @@ var start_fade = false
 func _ready() -> void:
 	await get_tree().create_timer(0.01).timeout#Engine.get_process_frames()
 	$CPUParticles3D.emitting = true
+	#lobal_scale()
+	var parent_scale = get_parent().global_transform.basis.get_scale()
+	$MeshInstance3D.scale = Vector3(
+	0.15 / parent_scale.x,
+	0.15 / parent_scale.y ,
+	0.15 / parent_scale.z
+	)
+	#$MeshInstance3D.set_disable_scale(true)
 	#$MeshInstance3D.rotation.x = deg_to_rad(randi_range(0, 4) * 90)
 	#var rand_scale = randf_range(1.0, scale_randomization)
 	#scale = Vector3(rand_scale, rand_scale, rand_scale)

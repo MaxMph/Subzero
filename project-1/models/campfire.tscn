@@ -55,7 +55,7 @@ size = Vector3(1, 0.58154297, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfree"]
 
-[node name="campfire" type="Node3D" unique_id=991263115]
+[node name="campfire" type="StaticBody3D" unique_id=1884838253]
 script = ExtResource("1_mfree")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=859032211]
@@ -143,15 +143,12 @@ shape = SubResource("BoxShape3D_0e7a1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67404366, 0)
 light_color = Color(1, 0.7647157, 0.618507, 1)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1929512041]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1214318596]
-shape = SubResource("BoxShape3D_mfree")
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=278802594]
 stream = ExtResource("4_p48th")
 volume_db = -10.0
-autoplay = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1214318596]
+shape = SubResource("BoxShape3D_mfree")
 
 [connection signal="body_entered" from="warm_area" to="." method="_on_warm_area_body_entered"]
 [connection signal="body_exited" from="warm_area" to="." method="_on_warm_area_body_exited"]

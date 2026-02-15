@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cy7uk1t6gu60b"]
+
+[ext_resource type="Script" uid="uid://dteqfkmcgq7ii" path="res://items/item.gd" id="1_8k3ux"]
+[ext_resource type="Texture2D" uid="uid://ct1wwwx6cpjsq" path="res://textures/mdf.png" id="1_v1iji"]
+[ext_resource type="Resource" uid="uid://cglg5awyo3k5l" path="res://items/match.tres" id="2_8k3ux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1iji"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saa1r"]
+albedo_texture = ExtResource("1_v1iji")
+uv1_scale = Vector3(0.175, 0.175, 0.175)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_8k3ux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35s3l"]
+albedo_color = Color(0.83575755, 0.29067943, 0.06554515, 1)
+
+[node name="match" type="RigidBody3D" unique_id=191213]
+script = ExtResource("1_8k3ux")
+item_info = ExtResource("2_8k3ux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2146599443]
+shape = SubResource("BoxShape3D_v1iji")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1212254049]
+transform = Transform3D(0.02999999, 0, 0, 0, 0.02999999, 0, 0, 0, 0.32105872, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_saa1r")
+mesh = SubResource("BoxMesh_8k3ux")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1876934633]
+transform = Transform3D(0.036515333, 0, 0, 0, 0.036515333, 0, 0, 0, 0.05077015, 0, 0, -0.159111)
+material_override = SubResource("StandardMaterial3D_35s3l")
+mesh = SubResource("BoxMesh_8k3ux")

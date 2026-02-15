@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://clhp2bluvim87" path="res://models/pine_tree_2.gd" id="1_je0yf"]
 [ext_resource type="Texture2D" uid="uid://beku401xdgrrc" path="res://textures/172_concrete wall texture-seamless.jpg" id="2_011b6"]
 [ext_resource type="PlaneMesh" uid="uid://cdhc75mlojbn5" path="res://models/branch.tres" id="3_1ggs4"]
+[ext_resource type="Material" uid="uid://brg0j1vxu58gp" path="res://models/branch_shader.tres" id="3_s8m2l"]
 [ext_resource type="PackedScene" uid="uid://2mtj5bjrxfb3" path="res://models/branch.tscn" id="4_011b6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8m2l"]
@@ -75,6 +76,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_011b6")
 
 [node name="branch_multimesh" type="MultiMeshInstance3D" parent="." unique_id=937666923]
+material_override = ExtResource("3_s8m2l")
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_ly8pc")
 

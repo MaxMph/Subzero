@@ -23,5 +23,14 @@ func _ready() -> void:
 		i.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#
+
+#@onready var branches_mmi := $BranchesMultiMeshInstance3D
+
+func _process(delta):
+	if multimesh.material_override:
+		multimesh.material_override.set_shader_parameter(
+			"global_time",
+			Time.get_ticks_msec() * 0.001
+)

@@ -37,6 +37,7 @@ lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
 use_fixed_seed = true
+seed = 1754055299
 mesh = SubResource("BoxMesh_duv0e")
 direction = Vector3(0, 0, -1)
 gravity = Vector3(0, -4, 0)

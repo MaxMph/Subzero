@@ -15,7 +15,7 @@ var last_pos
 var sender = null
 
 func _ready() -> void:
-	ray.collision_mask = 3
+	ray.collision_mask = 131
 	add_sibling(ray)
 
 	global_transform = spawn_transform

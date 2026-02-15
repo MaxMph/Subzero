@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dsoix3q6bt5qn"]
+
+[ext_resource type="Script" uid="uid://dteqfkmcgq7ii" path="res://items/item.gd" id="1_psdao"]
+[ext_resource type="Resource" uid="uid://cglg5awyo3k5l" path="res://items/match.tres" id="2_x8jct"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x8jct"]
+size = Vector3(0.275, 0.135, 0.405)
+
+[sub_resource type="BoxMesh" id="BoxMesh_psdao"]
+
+[node name="matchbox" type="RigidBody3D" unique_id=1485593564]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_psdao")
+item_info = ExtResource("2_x8jct")
+use_rand = true
+count_range = Vector2(2, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1617151254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0014648438, 0)
+shape = SubResource("BoxShape3D_x8jct")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1759644951]
+transform = Transform3D(0.27798477, 0, 0, 0, 0.13621257, 0, 0, 0, 0.41658184, 0, 0, 0)
+mesh = SubResource("BoxMesh_psdao")

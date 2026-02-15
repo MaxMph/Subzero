@@ -539,7 +539,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 10)
 visible = false
 
-[node name="dead bunny" parent="." unique_id=1956183439 instance=ExtResource("11_ic0uy")]
+[node name="dead bunny" parent="." unique_id=178459563 instance=ExtResource("11_ic0uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 0)
 
 [node name="dead bunny2" parent="." unique_id=134516911 instance=ExtResource("12_k3n1d")]

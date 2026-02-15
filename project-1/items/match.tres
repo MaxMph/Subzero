@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_res" format=3 uid="uid://cglg5awyo3k5l"]
+
+[ext_resource type="Script" uid="uid://bt5pfqud1y7xp" path="res://items/item_res.gd" id="1_5xc30"]
+
+[resource]
+script = ExtResource("1_5xc30")
+item_name = "match"
+item_scene = "res://items/match.tscn"
+weight = 0.01
+value = 1
+metadata/_custom_type_script = "uid://bt5pfqud1y7xp"
