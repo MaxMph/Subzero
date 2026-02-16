@@ -4,6 +4,12 @@
 <h3><br>!THIS IS A VERY UNFINISHED BUILD!</h3>
 <h3>!MAC AND WINDOWS UNTESTED!</h3>
 https://maxwell-mph.itch.io/subzero
+
+<p>Made in godot
+All models hand crafted by yours truly!
+sounds gotten from pixabay, some eddited by me
+everything other than some of the audio and some of the textures where handmade by me, no ai, no assets :)</p>
+
 <p></p>
 <h4>Keybinds:</h4>
 <p>wasd -&gt; move</p>
