@@ -36,5 +36,5 @@ func interact():
 	for i in item_info.count:
 		get_tree().get_first_node_in_group("player").inv.add_item(item_info)
 	#print(item_info.item_name)
-	
+	get_tree().get_first_node_in_group("player").item_pickup_sound.play()
 	queue_free()

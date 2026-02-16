@@ -8,6 +8,7 @@ var dmg: float = 10.0
 
 @onready var ray = RayCast3D.new()
 @onready var decal = preload("res://guns/bullet_decal.tscn")
+@onready var flesh_sound = preload("res://enemies/flesh_hit_sound.tscn")
 
 var spawn_transform
 var last_pos
@@ -49,6 +50,9 @@ func _process(delta: float) -> void:
 		if ray.get_collider().has_method("hit"):
 			#ray.get_collider().hit(dmg, sender)
 			ray.get_collider().hit(dmg, self)
+			var new_flesh_hit = flesh_sound.instantiate()
+			new_flesh_hit.position = global_position
+			get_tree().root.add_child(new_flesh_hit)
 			
 		var new_decal = decal.instantiate()
 		ray.get_collider().add_child(new_decal)

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxd1mf5e3se2q"
 path.s3tc="res://.godot/imported/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg-5d6d7a2df669db5c45fab186ac5d7b0e.s3tc.ctex"
+path.etc2="res://.godot/imported/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg-5d6d7a2df669db5c45fab186ac5d7b0e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg"
-dest_files=["res://.godot/imported/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg-5d6d7a2df669db5c45fab186ac5d7b0e.s3tc.ctex"]
+dest_files=["res://.godot/imported/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg-5d6d7a2df669db5c45fab186ac5d7b0e.s3tc.ctex", "res://.godot/imported/nathan-dumlao-J2gEgTPM_OA-unsplash.jpg-5d6d7a2df669db5c45fab186ac5d7b0e.etc2.ctex"]
 
 [params]
 

@@ -108,6 +108,7 @@ func travel(delta):
 
 
 func run(delta):
+	$AnimationPlayer.play("walk")
 	if $run_timer.is_stopped():
 		$run_timer.start()
 	

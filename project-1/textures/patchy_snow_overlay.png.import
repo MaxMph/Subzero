@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6o8xb5r8tmuk"
 path.s3tc="res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.s3tc.ctex"
+path.etc2="res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/patchy_snow_overlay.png"
-dest_files=["res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.s3tc.ctex"]
+dest_files=["res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.s3tc.ctex", "res://.godot/imported/patchy_snow_overlay.png-69541e3cf0c8d10f65d675b3efb6db07.etc2.ctex"]
 
 [params]
 

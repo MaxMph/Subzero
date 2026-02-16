@@ -3,14 +3,14 @@ extends CharacterBody3D
 
 var base_speed
 var speed = 5.6
-var sprint_mult = 1.6
+var sprint_mult = 1.4
 var acc = 20
 var fric = 20
 
 var hunger = 100
 var matabolism = 0.8
 var warmth = 100
-var chill = 1.0
+var chill = 0.55
 var blood = 100
 
 var jump_vel = 6.8
@@ -37,6 +37,8 @@ var step_pitch
 
 @export var dialogue: Node
 
+@onready var item_pickup_sound = $item_pickup
+
 #@onready var hand_to_gun_aim: AimModifier3D = $head/cam_holder/Camera3D/arms/hand_to_gun_l
 
 func _ready() -> void:
@@ -59,7 +61,11 @@ func _ready() -> void:
 	#rotation.y = 0
 	#cam.global_rotation = global_rotation
 	
-	$dialogue.start_text(["February 26, 2012", "I camped at some old cabins tonight, the chill has gotten near unberable...", "still better than being in the city. I just need to get food and stay warm, buy myself time make a plan..."])
+	$dialogue.start_text([
+	"February 26, 2012",
+	"I camped at some old cabins tonight, the chill has gotten near unberable...", "still better than being in the city. I just need to get food and stay warm, buy myself time make a plan...",
+	"[after you press enter to finish this dialogue, press tab to open your PDA terminal and type [help] to see some helpfull information]"
+	])
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -83,7 +89,7 @@ func _process(delta: float) -> void:
 	#warmth -= time * (0.001 + ((100 - blood) / 1000))
 	
 	hunger -= delta * matabolism
-	warmth -= delta * (chill + (100 - blood) / 40) #100) #delta * (0.001 + ((100 - blood) / 1000))
+	warmth -= delta * (chill + (100 - blood) / 40 + (100 - hunger) / 20) #100) #delta * (0.001 + ((100 - blood) / 1000))
 	
 	$Control/ColorRect.material.set_shader_parameter("blur_amount", (1 - warmth / 100) * 2)
 	$Control/HBoxContainer/VBoxContainer/hungerbar.value = hunger

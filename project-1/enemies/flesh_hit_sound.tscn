@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bx7fgnxyk8rra"]
+
+[ext_resource type="AudioStream" uid="uid://dhn0af5odw87h" path="res://audio/universfield-classic-punch-impact-352711.mp3" id="1_qr5rl"]
+
+[node name="flesh_hit_sound" type="AudioStreamPlayer3D" unique_id=1322495788]
+stream = ExtResource("1_qr5rl")
+autoplay = true

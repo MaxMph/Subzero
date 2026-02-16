@@ -3,7 +3,7 @@ extends Node3D
 @export var lit = false
 
 var player = null
-var heat = 5.0
+var heat = 8.0
 var heat_range
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -18,7 +18,7 @@ func start_text(text):
 	if Global.in_menu == false:
 		%page_numbers.text = ""
 		show()
-		Global.in_menu = true
+		#Global.in_menu = true
 		#index = 0
 		#typeof()
 		
@@ -32,7 +32,7 @@ func start_text(text):
 			await next
 		
 		%dialogue_text.text = ""
-		Global.in_menu = false
+		#Global.in_menu = false
 		hide()
 #
 #func next_line(lines = []):

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dmjwxc0upqet2" path="res://ui/blood_sprite.png" id="8_nvl01"]
 [ext_resource type="AudioStream" uid="uid://s03fyp1krkrd" path="res://audio/snow footsep edited.wav" id="12_ivps1"]
 [ext_resource type="AudioStream" uid="uid://bv5hbppq7jg6y" path="res://audio/freesound_community-heavy-breathing-14431.wav" id="13_urp6f"]
+[ext_resource type="AudioStream" uid="uid://ckp1yjek04jud" path="res://audio/freesound_community-inventory-grab-36275.wav" id="14_606se"]
 [ext_resource type="PackedScene" uid="uid://bvdonsn75afmf" path="res://dialogue.tscn" id="14_bwjto"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
@@ -914,6 +915,10 @@ max_polyphony = 2
 [node name="breathing" type="AudioStreamPlayer" parent="." unique_id=1317404575]
 stream = ExtResource("13_urp6f")
 autoplay = true
+
+[node name="item_pickup" type="AudioStreamPlayer" parent="." unique_id=1043791079]
+stream = ExtResource("14_606se")
+volume_db = 6.0
 
 [node name="dialogue" parent="." unique_id=1127584275 instance=ExtResource("14_bwjto")]
 visible = false

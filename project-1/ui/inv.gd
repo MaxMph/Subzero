@@ -16,18 +16,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("enter"):
-		print_line("user@FieldPDA:~$ " + %cmd_line.text)
-		send_command(%cmd_line.text)
-		%cmd_line.text = ""
-		#%cmd_line.clear()
-		#%cmd_line.release_focus()
-		%cmd_line.grab_focus()
-		%cmd_line.edit(true)
-		#%cmd_line.keep_editing_on_text_submit
-		#%cmd_line.select_all()
-		#%cmd_line.grab_click_focus()
-		#%cmd_line
+	if visible:
+		if Input.is_action_just_pressed("enter"):
+			print_line("user@FieldPDA:~$ " + %cmd_line.text)
+			send_command(%cmd_line.text)
+			%cmd_line.text = ""
+			#%cmd_line.clear()
+			#%cmd_line.release_focus()
+			%cmd_line.grab_focus()
+			%cmd_line.edit(true)
+			#%cmd_line.keep_editing_on_text_submit
+			#%cmd_line.select_all()
+			#%cmd_line.grab_click_focus()
+			#%cmd_line
 	
 	if Input.is_action_just_pressed("inv"):
 		if visible:
@@ -38,6 +39,11 @@ func _process(delta: float) -> void:
 			#$inv.show()
 			open()
 			#Input.mouse_mode = Input.mouse_mode
+		
+	if Input.is_action_just_pressed("esc"):
+		if visible and Global.in_menu == true:
+			await  get_tree().process_frame
+			close()
 
 func _on_remove_item_pressed() -> void:
 	if items.size() > 0:
@@ -92,14 +98,20 @@ func send_command(text: String):
 			get_tree().quit()
 		"quit":
 			get_tree().quit()
-		"additem", "add_item":
-			_on_add_item_pressed()
-		"remove":
+		#"additem", "add_item":
+			#_on_add_item_pressed()
+		"drop":
 			remove_item(selected - 1)
 		"use":
 			use_item(selected - 1)
 		"help":
 			help()
+		"commands":
+			commands_help()
+		"keybinds":
+			keybinds_help()
+		"hud":
+			hud_help()
 		_:
 			print_line("--invalid command--")
 		
@@ -173,7 +185,8 @@ func use_item(index):
 				print_line("Blood = " + str(get_parent().hunger))
 			#for i in 
 				#if items[index].consume_effects
-			
+			#remove_item(index)
+			items.remove_at(index)
 			#if items[index].consumable == true:
 				#get_parent().blood += items[index].consume_effects["blood"]
 				#get_parent().hunger += items[index].consume_effects["hunger"]
@@ -189,14 +202,38 @@ func selected_check(index):
 		return true
 
 func help():
-	print_line("")
+	print_line("type [keybinds] to get a list of the controls")
+	print_line("type [commands] to get a list of all the commands")
+	print_line("type [hud] to get the HUD explained and some general advice")
+
+func keybinds_help():
 	print_line("keybinds:")
 	print_line("wasd -> move")
+	print_line("shift -> sprint")
+	print_line("f -> interact")
+	print_line("leftclick -> shoots if gun is held")
+	print_line("rightclick -> aims if gun is held")
+	print_line("t -> check ammo")
+	print_line("r -> reload")
+	print_line("enter -> progress dialogue")
 	print_line("tab -> open terminal")
-	#print_line("")
-	
-	print_line("")
+	print_line("esc -> pause menu (posibly removed in future build)")
+
+func commands_help():
 	print_line("Commands:")
-	print_line("[inv] -> shows items in inventory")
-	print_line("[blabla] -> does nothing")
+	print_line("[inv] -> shows items in inventory with there index number (the number before the name)")
+	print_line("[use <item index>] -> uses the selected item (the item index can be found by using [inv])")
+	print_line("[drop <item index>] -> drops the selected item (the item index can be found by using [inv])")
+	print_line("[help] -> shows help commands")
+	print_line("[keybinds] -> get a list of the controls")
+	print_line("[commands] -> get a list of all the commands")
+	print_line("[hud] -> get the HUD explained and some general advice")
+	print_line("[quit] -> exits game") 
 	
+
+func hud_help():
+	print_line("HUD:")
+	print_line("The three bars in the right of your screen repersent hunger, warmth, and blood.")
+	print_line("if either of these bars reach zero you will die.")
+	print_line("Your hunger and blood levels will affect how quickly you loose warmth.")
+	print_line("eat food to stay full, sit by a fire to warm up.")

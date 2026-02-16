@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp8jx3rv44t7x"
 path.s3tc="res://.godot/imported/vector_wire_chainlink_fence_pattern-removebg-preview.png-8812bc848193c8ecf56a861deb0357a2.s3tc.ctex"
+path.etc2="res://.godot/imported/vector_wire_chainlink_fence_pattern-removebg-preview.png-8812bc848193c8ecf56a861deb0357a2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/vector_wire_chainlink_fence_pattern-removebg-preview.png"
-dest_files=["res://.godot/imported/vector_wire_chainlink_fence_pattern-removebg-preview.png-8812bc848193c8ecf56a861deb0357a2.s3tc.ctex"]
+dest_files=["res://.godot/imported/vector_wire_chainlink_fence_pattern-removebg-preview.png-8812bc848193c8ecf56a861deb0357a2.s3tc.ctex", "res://.godot/imported/vector_wire_chainlink_fence_pattern-removebg-preview.png-8812bc848193c8ecf56a861deb0357a2.etc2.ctex"]
 
 [params]
 

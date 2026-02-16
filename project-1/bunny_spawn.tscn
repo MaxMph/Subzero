@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2f7gfm6ha7ij"]
+
+[ext_resource type="Script" uid="uid://blvvsfgy1a381" path="res://bunny_spawn.gd" id="1_c20k6"]
+
+[node name="bunny spawn" type="Node3D" unique_id=2135439490]
+script = ExtResource("1_c20k6")
+
+[node name="tic" type="Timer" parent="." unique_id=637549963]
+autostart = true
+
+[connection signal="timeout" from="tic" to="." method="_on_tic_timeout"]

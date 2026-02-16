@@ -1,22 +1,22 @@
 extends Node3D
-
-@export var daylight = 0.4
-var light = 0.2
-var day_length = 12
-var cur_time = 12
-var light_dark = -1
-
-var sunlight_range = Vector2(0, 0.2)
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#$"../DirectionalLight3D".energy
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
+#
+#@export var daylight = 0.4
+#var light = 0.2
+#var day_length = 12
+#var cur_time = 12
+#var light_dark = -1
+#
+#var sunlight_range = Vector2(0, 0.2)
+## Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+	##$"../DirectionalLight3D".energy
+	#pass
+#
+#
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
+	#
 	#cur_time += delta * light_dark
 	#if cur_time > day_length or cur_time < 0:
 		###cur_time = 0
@@ -44,13 +44,13 @@ func _process(delta: float) -> void:
 		##light_dark = 1
 	
 	
-	cur_time += delta * light_dark
-	if cur_time > day_length or cur_time < 0:
-		light_dark *= -1
-
-	var t = cur_time / day_length
-
-	#$"../DirectionalLight3D".rotation_degrees.x = t * 360.0 - 90.0
-	$"../DirectionalLight3D".light_energy = t
-	$"../WorldEnvironment".environment.background_energy_multiplier = t
+	#cur_time += delta * light_dark
+	#if cur_time > day_length or cur_time < 0:
+		#light_dark *= -1
+#
+	#var t = cur_time / day_length
+#
+	##$"../DirectionalLight3D".rotation_degrees.x = t * 360.0 - 90.0
+	#$"../DirectionalLight3D".light_energy = t
+	#$"../WorldEnvironment".environment.background_energy_multiplier = t
 	

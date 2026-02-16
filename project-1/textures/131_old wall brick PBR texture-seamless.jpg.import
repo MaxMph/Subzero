@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwm0bjt3oncjf"
 path.s3tc="res://.godot/imported/131_old wall brick PBR texture-seamless.jpg-132460b99f0128a74b7cf2be7f8a2206.s3tc.ctex"
+path.etc2="res://.godot/imported/131_old wall brick PBR texture-seamless.jpg-132460b99f0128a74b7cf2be7f8a2206.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/131_old wall brick PBR texture-seamless.jpg"
-dest_files=["res://.godot/imported/131_old wall brick PBR texture-seamless.jpg-132460b99f0128a74b7cf2be7f8a2206.s3tc.ctex"]
+dest_files=["res://.godot/imported/131_old wall brick PBR texture-seamless.jpg-132460b99f0128a74b7cf2be7f8a2206.s3tc.ctex", "res://.godot/imported/131_old wall brick PBR texture-seamless.jpg-132460b99f0128a74b7cf2be7f8a2206.etc2.ctex"]
 
 [params]
 
